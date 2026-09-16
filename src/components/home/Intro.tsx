@@ -1,128 +1,375 @@
 import hotelImg from '../../assets/hotel.png';
-import { Star, ArrowRight, BedDouble, Compass, Car } from 'lucide-react';
+import {
+  ArrowRight,
+  BedDouble,
+  Compass,
+  Car,
+  Flower2,
+} from 'lucide-react';
 
 const services = [
-  { icon: BedDouble, title: 'Luxury Stay' },
-  { icon: Compass, title: 'Desert Tours' },
-  { icon: Car, title: 'Car Rental' },
+  {
+    icon: BedDouble,
+    title: 'Luxury Stay',
+  },
+  {
+    icon: Compass,
+    title: 'Desert Tours',
+  },
+  {
+    icon: Car,
+    title: 'Car Rental',
+  },
 ];
 
 export function Intro() {
   return (
-    <section id="about" className="pt-12 lg:pt-16 pb-10 lg:pb-16 bg-white relative overflow-hidden">
-      <div className="w-[90%] mx-auto">
+    <section
+      id="about"
+      className="
+        relative
+        overflow-hidden
+        bg-white
+        pt-14
+        sm:pt-16
+        md:pt-20
+        lg:pt-24
+        pb-14
+        sm:pb-16
+        md:pb-20
+        lg:pb-24
+      "
+    >
+      {/* =========================================================
+          SUBTLE TOP DECORATION
+          ========================================================= */}
+      <div
+        className="
+          absolute
+          top-0
+          left-1/2
+          -translate-x-1/2
+          w-40
+          sm:w-52
+          h-px
+          bg-[#C99A5B]/25
+        "
+      />
 
-        {/* 2-Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+      <div
+        className="
+          absolute
+          top-[-90px]
+          left-1/2
+          -translate-x-1/2
+          w-[220px]
+          h-[220px]
+          rounded-full
+          border
+          border-[#C99A5B]/[0.06]
+          pointer-events-none
+        "
+      />
 
-          {/* Left Column */}
-          <div className="flex flex-col justify-center">
+      <div
+        className="
+          relative
+          w-[90%]
+          sm:w-[88%]
+          md:w-[86%]
+          lg:w-[82%]
+          max-w-[1100px]
+          mx-auto
+        "
+      >
+        {/* =======================================================
+            SECTION TITLE
+            ======================================================= */}
+        <div
+          className="
+            text-center
+            max-w-[760px]
+            mx-auto
+          "
+        >
+          {/* Flower ornament */}
+          <div
+            className="
+              flex
+              items-center
+              justify-center
+              gap-3
+              mb-3
+            "
+          >
+            <span className="w-9 sm:w-12 h-px bg-[#C99A5B]/40" />
 
-            {/* Eyebrow */}
-            <span className="font-sans text-[12px] tracking-[0.28em] uppercase font-semibold text-[#C99A5B] block mb-3">
-              FROM ₹2,499 PER NIGHT
-            </span>
+            <Flower2
+              size={18}
+              strokeWidth={1.2}
+              className="text-[#C99A5B]"
+            />
 
-            {/* Heading — bigger */}
-            <h2 className="font-serif text-4xl sm:text-5xl lg:text-[50px] text-[#241C17] font-normal leading-[1.15] mb-5">
-              Relax in Our Luxury<br />
-              Hotel Resort
-            </h2>
-
-            {/* Body — shorter, bigger font */}
-            <p className="text-[#666] font-sans text-[15px] sm:text-[16px] leading-[1.8] font-light mb-7 max-w-md">
-              A royal sanctuary carved from golden Jaisalmer sandstone — blending timeless Rajasthani heritage with contemporary comfort and proud local hospitality.
-            </p>
-
-            {/* ── 3 Services in ONE horizontal row ── */}
-            <div className="flex items-start gap-6 mb-8">
-              {services.map((svc, i) => {
-                const Icon = svc.icon;
-                return (
-                  <div key={i} className="flex flex-col items-center gap-2 group text-center">
-                    <div className="w-10 h-10 rounded-full border border-[#C99A5B]/50 bg-[#FDF8F1] flex items-center justify-center text-[#C99A5B] group-hover:bg-[#C99A5B] group-hover:text-white transition-all duration-300 shadow-sm shrink-0">
-                      <Icon size={17} strokeWidth={1.5} />
-                    </div>
-                    <span className="font-sans text-[11.5px] font-semibold uppercase tracking-wider text-[#241C17] group-hover:text-[#C99A5B] transition-colors duration-300 whitespace-nowrap">
-                      {svc.title}
-                    </span>
-                  </div>
-                );
-              })}
-            </div>
-
-            {/* Trust Bar */}
-            <div className="border-t border-gray-200 pt-5 mb-5 flex flex-wrap items-center gap-4 text-[12px] font-sans text-[#555]">
-              <span className="font-medium text-[#241C17]">Recommended on:</span>
-
-              {/* Booking.com — favicon + branded text */}
-              <span className="flex items-center gap-1.5">
-                <img
-                  src="https://www.google.com/s2/favicons?domain=booking.com&sz=32"
-                  alt=""
-                  className="w-4 h-4 rounded-sm object-contain"
-                />
-                <span className="font-bold text-[#003580] text-[13px]">Booking.com</span>
-              </span>
-
-              <span className="text-gray-300">•</span>
-
-              {/* Tripadvisor logo with text */}
-              <img
-                src="https://static.tacdn.com/img2/brand_refresh/Tripadvisor_lockup_horizontal_secondary_registered.svg"
-                alt="Tripadvisor"
-                className="h-5 w-auto object-contain"
-              />
-
-              <span className="text-gray-300">•</span>
-              <span className="text-[#C99A5B] font-medium uppercase tracking-wider text-[10.5px]">Luxury Hotel</span>
-            </div>
-
-            {/* CTA */}
-            <a
-              href="#stay"
-              className="inline-flex items-center gap-2 text-[11px] font-sans font-semibold tracking-[0.25em] uppercase text-[#241C17] hover:text-[#C99A5B] transition-colors border-b-2 border-[#C99A5B] pb-1 self-start"
-            >
-              <span>EXPLORE ROOMS &amp; SUITES</span>
-              <ArrowRight size={13} />
-            </a>
-
+            <span className="w-9 sm:w-12 h-px bg-[#C99A5B]/40" />
           </div>
 
-          {/* Right Column: Image */}
-          <div className="flex justify-center lg:justify-end pt-8 sm:pt-10">
-            <div className="relative w-full max-w-[370px] sm:max-w-[420px] aspect-square shadow-[0_16px_45px_rgba(0,0,0,0.14)]">
+          {/* Small title */}
+          <span
+            className="
+              block
+              font-sans
+              text-[9px]
+              sm:text-[10px]
+              md:text-[11px]
+              tracking-[0.28em]
+              uppercase
+              font-semibold
+              text-[#C99A5B]
+              mb-3
+            "
+          >
+            STAY AT JMB
+          </span>
 
+          {/* Main heading */}
+          <h2
+            className="
+              font-serif
+              font-normal
+              text-[#241C17]
+              text-[30px]
+              sm:text-[36px]
+              md:text-[42px]
+              lg:text-[46px]
+              leading-[1.15]
+              tracking-[0.01em]
+              mb-4
+            "
+          >
+            A Refined Stay in the Golden City
+          </h2>
+
+          {/* =====================================================
+              ONLY ONE PARAGRAPH
+              ===================================================== */}
+          <p
+            className="
+              font-sans
+              text-[#70665E]
+              text-[12.5px]
+              sm:text-[13.5px]
+              md:text-[14px]
+              leading-[1.8]
+              font-light
+              max-w-[610px]
+              mx-auto
+            "
+          >
+            Discover a comfortable Jaisalmer stay shaped by warm
+            hospitality, timeless surroundings and easy access to the
+            Golden City's desert and heritage experiences.
+          </p>
+        </div>
+
+        {/* =======================================================
+            CENTER HOTEL IMAGE
+            ======================================================= */}
+        <div
+          className="
+            relative
+            flex
+            justify-center
+            mt-9
+            sm:mt-10
+            md:mt-12
+            lg:mt-14
+          "
+        >
+          <div
+            className="
+              relative
+              w-full
+              max-w-[340px]
+              sm:max-w-[430px]
+              md:max-w-[500px]
+              lg:max-w-[560px]
+            "
+          >
+            {/* Image */}
+            <div
+              className="
+                relative
+                aspect-[1.08]
+                overflow-hidden
+                shadow-[0_18px_45px_rgba(36,28,23,0.14)]
+              "
+            >
               <img
                 src={hotelImg}
-                alt="JMB Luxury Hotel Resort"
-                className="w-full h-full object-cover rounded-[1px]"
+                alt="JMB Jaisalmer Hotel"
+                className="
+                  w-full
+                  h-full
+                  object-cover
+                  block
+                "
                 loading="lazy"
               />
 
-              {/* Inset Border */}
-              <div className="absolute inset-3 sm:inset-4 border-2 border-white pointer-events-none z-10" />
-
-              {/* Gold Floating Box */}
-              <div className="absolute -top-6 sm:-top-8 inset-x-6 sm:inset-x-8 z-20 bg-[#DEAA6B]/95 backdrop-blur-md text-white p-5 sm:p-6 text-center border border-white/80 shadow-2xl flex flex-col items-center justify-center">
-                <div className="flex items-center justify-center gap-1 mb-2">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={13} className="fill-white stroke-white" />
-                  ))}
-                </div>
-                <h3 className="font-sans text-[11px] sm:text-[12px] tracking-[0.25em] uppercase font-bold text-white mb-2">
-                  LUXURY HOTEL
-                </h3>
-                <p className="font-serif text-[12px] sm:text-[13px] italic text-white/95 leading-relaxed font-light">
-                  A wonderful serenity has taken possession<br className="hidden sm:inline" />
-                  of our royal sanctuary where heritage<br className="hidden sm:inline" />
-                  meets timeless hospitality.
-                </p>
-              </div>
-
+              {/* Clean inset border */}
+              <div
+                className="
+                  absolute
+                  inset-3
+                  sm:inset-4
+                  border
+                  border-white/90
+                  pointer-events-none
+                "
+              />
             </div>
-          </div>
 
+            {/* Small sandstone accent underneath */}
+            <div
+              className="
+                absolute
+                left-1/2
+                -translate-x-1/2
+                -bottom-2
+                w-20
+                h-[2px]
+                bg-[#C99A5B]
+              "
+            />
+          </div>
+        </div>
+
+        {/* =======================================================
+            SERVICES
+            ======================================================= */}
+        <div
+          className="
+            flex
+            justify-center
+            items-start
+            gap-5
+            sm:gap-10
+            md:gap-16
+            mt-10
+            sm:mt-11
+            md:mt-12
+          "
+        >
+          {services.map((service, index) => {
+            const Icon = service.icon;
+
+            return (
+              <div
+                key={index}
+                className="
+                  flex
+                  flex-col
+                  items-center
+                  text-center
+                  group
+                  min-w-0
+                "
+              >
+                {/* Icon */}
+                <div
+                  className="
+                    w-10
+                    h-10
+                    sm:w-11
+                    sm:h-11
+                    rounded-full
+                    border
+                    border-[#C99A5B]/40
+                    bg-[#FDF9F3]
+                    flex
+                    items-center
+                    justify-center
+                    text-[#C99A5B]
+                    transition-all
+                    duration-300
+                    group-hover:bg-[#C99A5B]
+                    group-hover:text-white
+                    group-hover:border-[#C99A5B]
+                  "
+                >
+                  <Icon
+                    size={17}
+                    strokeWidth={1.4}
+                  />
+                </div>
+
+                {/* Label */}
+                <span
+                  className="
+                    mt-2
+                    font-sans
+                    text-[8.5px]
+                    sm:text-[9.5px]
+                    md:text-[10px]
+                    font-semibold
+                    uppercase
+                    tracking-[0.08em]
+                    sm:tracking-[0.12em]
+                    text-[#241C17]
+                    whitespace-nowrap
+                    transition-colors
+                    duration-300
+                    group-hover:text-[#C99A5B]
+                  "
+                >
+                  {service.title}
+                </span>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* =======================================================
+            CTA
+            ======================================================= */}
+        <div
+          className="
+            flex
+            justify-center
+            mt-8
+            sm:mt-9
+            md:mt-10
+          "
+        >
+          <a
+            href="#stay"
+            className="
+              inline-flex
+              items-center
+              gap-2
+              text-[9.5px]
+              sm:text-[10px]
+              md:text-[10.5px]
+              font-sans
+              font-semibold
+              tracking-[0.22em]
+              uppercase
+              text-[#241C17]
+              hover:text-[#C99A5B]
+              transition-colors
+              duration-300
+              border-b
+              border-[#C99A5B]
+              pb-1.5
+            "
+          >
+            <span>EXPLORE ROOMS &amp; SUITES</span>
+
+            <ArrowRight
+              size={13}
+              strokeWidth={1.5}
+            />
+          </a>
         </div>
       </div>
     </section>

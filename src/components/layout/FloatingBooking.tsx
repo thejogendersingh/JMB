@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   MessageSquareText,
   Car,
@@ -11,6 +11,7 @@ import {
 
 export function FloatingBooking() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   const waNumber = '919667222879';
 
@@ -39,12 +40,67 @@ export function FloatingBooking() {
     'Hello JMB Jaisalmer, I would like to plan my Jaisalmer trip.'
   )}`;
 
-  return (
-    <div className="fixed right-0 top-1/2 -translate-y-1/2 z-[60]">
+  /* =========================================================
+     SHOW FLOATING BOOKING AFTER HERO IS 50% SCROLLED
+     ========================================================= */
+  useEffect(() => {
+    const checkHeroPosition = () => {
+      // Hero is the first section on the page
+      const hero = document.querySelector('main section');
 
+      if (!hero) return;
+
+      const rect = hero.getBoundingClientRect();
+      const heroHeight = rect.height;
+
+      // Floating appears when half of Hero has moved above viewport
+      const halfHeroPassed = rect.bottom <= heroHeight / 2;
+
+      setIsVisible(halfHeroPassed);
+
+      // Close panel automatically when floating disappears
+      if (!halfHeroPassed) {
+        setIsOpen(false);
+      }
+    };
+
+    checkHeroPosition();
+
+    window.addEventListener('scroll', checkHeroPosition, {
+      passive: true,
+    });
+
+    window.addEventListener('resize', checkHeroPosition);
+
+    return () => {
+      window.removeEventListener('scroll', checkHeroPosition);
+      window.removeEventListener('resize', checkHeroPosition);
+    };
+  }, []);
+
+  return (
+    <div
+      className={`
+        fixed
+        right-0
+        top-1/2
+        -translate-y-1/2
+        z-[60]
+
+        transition-all
+        duration-500
+        ease-out
+
+        ${
+          isVisible
+            ? 'opacity-100 translate-x-0 pointer-events-auto'
+            : 'opacity-0 translate-x-5 pointer-events-none'
+        }
+      `}
+    >
       {/* =====================================================
           OPEN PANEL
-      ===================================================== */}
+          ===================================================== */}
       <div
         className={`
           absolute
@@ -56,11 +112,14 @@ export function FloatingBooking() {
           w-[275px]
           sm:w-[315px]
 
+          max-w-[calc(100vw-50px)]
+
           bg-white
+
           border
           border-[#E3D4BC]
 
-          rounded-l-[12px]
+          rounded-l-[8px]
 
           shadow-[-10px_14px_38px_rgba(36,28,23,0.16)]
 
@@ -77,49 +136,53 @@ export function FloatingBooking() {
           }
         `}
       >
-
-        {/* Panel Header */}
+        {/* ===================================================
+            PANEL HEADER
+            =================================================== */}
         <div className="relative bg-[#F0D8AE] px-5 py-5 sm:px-6 sm:py-6">
-
-          <div className="
-            absolute
-            right-[-30px]
-            top-[-35px]
-            w-[110px]
-            h-[110px]
-            rounded-full
-            border
-            border-[#A97B43]/15
-            pointer-events-none
-          " />
+          <div
+            className="
+              absolute
+              right-[-30px]
+              top-[-35px]
+              w-[110px]
+              h-[110px]
+              rounded-full
+              border
+              border-[#A97B43]/15
+              pointer-events-none
+            "
+          />
 
           <div className="relative">
-
             <div className="flex items-start justify-between gap-4">
-
               <div>
-                <span className="
-                  block
-                  font-sans
-                  text-[8px]
-                  sm:text-[9px]
-                  tracking-[0.28em]
-                  uppercase
-                  text-[#765633]
-                  font-bold
-                  mb-2
-                ">
+                <span
+                  className="
+                    block
+                    font-sans
+                    text-[8px]
+                    sm:text-[9px]
+                    tracking-[0.28em]
+                    uppercase
+                    text-[#765633]
+                    font-bold
+                    mb-2
+                  "
+                >
                   JMB JAISALMER
                 </span>
 
-                <h3 className="
-                  font-serif
-                  text-[25px]
-                  sm:text-[30px]
-                  text-[#241C17]
-                  font-normal
-                  leading-none
-                ">
+                <h3
+                  className="
+                    font-serif
+                    text-[25px]
+                    sm:text-[30px]
+                    text-[#241C17]
+                    font-normal
+                    leading-none
+                  "
+                >
                   Plan Your Trip
                 </h3>
               </div>
@@ -145,33 +208,36 @@ export function FloatingBooking() {
                   strokeWidth={1.7}
                 />
               </button>
-
             </div>
 
-            <div className="
-              w-8
-              h-[2px]
-              bg-[#A97B43]
-              mt-4
-              mb-3
-            " />
+            <div
+              className="
+                w-8
+                h-[2px]
+                bg-[#A97B43]
+                mt-4
+                mb-3
+              "
+            />
 
-            <p className="
-              font-sans
-              text-[11px]
-              sm:text-[12px]
-              text-[#665343]
-              leading-5
-            ">
+            <p
+              className="
+                font-sans
+                text-[11px]
+                sm:text-[12px]
+                text-[#665343]
+                leading-5
+              "
+            >
               Let's make your Jaisalmer journey special.
             </p>
-
           </div>
         </div>
 
-        {/* Services */}
+        {/* ===================================================
+            SERVICES
+            =================================================== */}
         <div className="px-4 sm:px-5 bg-white">
-
           {options.map((opt, index) => {
             const Icon = opt.icon;
 
@@ -197,24 +263,25 @@ export function FloatingBooking() {
                   hover:bg-[#FCF9F4]
                 "
               >
-
-                <div className="
-                  w-9
-                  h-9
-                  sm:w-10
-                  sm:h-10
-                  shrink-0
-                  rounded-full
-                  bg-[#F8EDDA]
-                  flex
-                  items-center
-                  justify-center
-                  text-[#725536]
-                  transition-all
-                  duration-300
-                  group-hover:bg-[#C99A5B]
-                  group-hover:text-white
-                ">
+                <div
+                  className="
+                    w-9
+                    h-9
+                    sm:w-10
+                    sm:h-10
+                    shrink-0
+                    rounded-full
+                    bg-[#F8EDDA]
+                    flex
+                    items-center
+                    justify-center
+                    text-[#725536]
+                    transition-all
+                    duration-300
+                    group-hover:bg-[#C99A5B]
+                    group-hover:text-white
+                  "
+                >
                   <Icon
                     size={18}
                     strokeWidth={1.5}
@@ -222,30 +289,32 @@ export function FloatingBooking() {
                 </div>
 
                 <div className="flex-1 min-w-0">
-
-                  <span className="
-                    block
-                    font-sans
-                    text-[11px]
-                    sm:text-[13px]
-                    font-bold
-                    text-[#241C17]
-                    leading-tight
-                  ">
+                  <span
+                    className="
+                      block
+                      font-sans
+                      text-[11px]
+                      sm:text-[13px]
+                      font-bold
+                      text-[#241C17]
+                      leading-tight
+                    "
+                  >
                     {opt.label}
                   </span>
 
-                  <span className="
-                    block
-                    font-sans
-                    text-[9px]
-                    sm:text-[10px]
-                    text-[#817365]
-                    mt-1
-                  ">
+                  <span
+                    className="
+                      block
+                      font-sans
+                      text-[9px]
+                      sm:text-[10px]
+                      text-[#817365]
+                      mt-1
+                    "
+                  >
                     {opt.sub}
                   </span>
-
                 </div>
 
                 <ArrowUpRight
@@ -258,14 +327,14 @@ export function FloatingBooking() {
                     transition-colors
                   "
                 />
-
               </a>
             );
           })}
 
-          {/* WhatsApp */}
+          {/* =================================================
+              WHATSAPP
+              ================================================= */}
           <div className="py-4">
-
             <a
               href={whatsappUrl}
               target="_blank"
@@ -281,7 +350,7 @@ export function FloatingBooking() {
                 hover:bg-[#A97B43]
                 text-white
                 py-3
-                rounded-[7px]
+                rounded-[5px]
                 font-sans
                 text-[9px]
                 sm:text-[10px]
@@ -305,28 +374,31 @@ export function FloatingBooking() {
               />
             </a>
 
-            <div className="
-              flex
-              items-center
-              justify-center
-              gap-2.5
-              mt-4
-            ">
+            <div
+              className="
+                flex
+                items-center
+                justify-center
+                gap-2.5
+                mt-4
+              "
+            >
               <span className="w-6 h-px bg-[#D9C7AD]" />
 
-              <span className="
-                font-sans
-                text-[7px]
-                tracking-[0.18em]
-                uppercase
-                text-[#817365]
-              ">
+              <span
+                className="
+                  font-sans
+                  text-[7px]
+                  tracking-[0.18em]
+                  uppercase
+                  text-[#817365]
+                "
+              >
                 We're here to help
               </span>
 
               <span className="w-6 h-px bg-[#D9C7AD]" />
             </div>
-
           </div>
         </div>
       </div>
@@ -334,8 +406,8 @@ export function FloatingBooking() {
       {/* =====================================================
           FLOATING TAB
           GOLD = WIDER
-          DARK = NARROWER + RIGHT ALIGNED
-      ===================================================== */}
+          DARK = NARROWER
+          ===================================================== */}
       <div
         className="
           flex
@@ -345,8 +417,7 @@ export function FloatingBooking() {
           sm:w-[48px]
         "
       >
-
-        {/* Gold Chat Button */}
+        {/* Gold Button */}
         <button
           type="button"
           onClick={() => setIsOpen(!isOpen)}
@@ -432,19 +503,21 @@ export function FloatingBooking() {
             hover:bg-[#33251C]
           "
         >
+          <span
+            className="
+              font-sans
+              text-[8px]
+              sm:text-[9px]
+              tracking-[0.17em]
+              uppercase
+              font-bold
+              whitespace-nowrap
+              leading-none
 
-          <span className="
-            font-sans
-            text-[8px]
-            sm:text-[9px]
-            tracking-[0.17em]
-            uppercase
-            font-bold
-            whitespace-nowrap
-            leading-none
-            [writing-mode:vertical-rl]
-            rotate-180
-          ">
+              [writing-mode:vertical-rl]
+              rotate-180
+            "
+          >
             PLAN YOUR TRIP
           </span>
 
@@ -457,9 +530,7 @@ export function FloatingBooking() {
               ${isOpen ? 'rotate-180' : ''}
             `}
           />
-
         </button>
-
       </div>
     </div>
   );

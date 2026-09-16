@@ -1,104 +1,412 @@
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export function Hero() {
-  const whatsappBooking = "https://wa.me/919667222879?text=Hello,%20I%20would%20like%20to%20plan%20my%20stay%20at%20JMB%20Jaisalmer.";
+  const whatsappBooking =
+    'https://wa.me/919667222879?text=Hello,%20I%20would%20like%20to%20plan%20my%20stay%20at%20JMB%20Jaisalmer.';
 
-  // MMT Hotel Image
-  const pexelsHeroImage = 'https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202412201437176756-74e4e2c4-ce4d-4e28-82c3-3aae7832dbbf.jpg';
+  const heroImage =
+    'https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202412201437176756-74e4e2c4-ce4d-4e28-82c3-3aae7832dbbf.jpg';
 
-  // Measure exact visible screen height on ANY mobile/desktop device
-  const [exactScreenHeight, setExactScreenHeight] = useState<string>('100vh');
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
-    const calculateHeight = () => {
-      // On mobile devices, subtract 65px (mobile browser bottom bar / navigation height)
-      // so the bottom of the hero section is 100% visible on screen without ANY scrolling.
-      if (window.innerWidth < 768) {
-        setExactScreenHeight(`${window.innerHeight - 65}px`);
-      } else {
-        setExactScreenHeight(`${window.innerHeight}px`);
+    let ticking = false;
+
+    const updateScroll = () => {
+      const scrollY = window.scrollY || window.pageYOffset;
+
+      const progress = Math.min(Math.max(scrollY / 420, 0), 1);
+
+      setScrollProgress(progress);
+      ticking = false;
+    };
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(updateScroll);
+        ticking = true;
       }
     };
-    calculateHeight();
-    window.addEventListener('resize', calculateHeight);
-    window.addEventListener('orientationchange', calculateHeight);
+
+    updateScroll();
+
+    window.addEventListener('scroll', handleScroll, {
+      passive: true,
+    });
+
+    window.addEventListener('resize', updateScroll);
+
     return () => {
-      window.removeEventListener('resize', calculateHeight);
-      window.removeEventListener('orientationchange', calculateHeight);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', updateScroll);
     };
   }, []);
 
+  // Normal radius at top → larger radius while scrolling
+  const radius = 8 + scrollProgress * 34;
+
+  // Small upward movement during scroll
+  const translateY = scrollProgress * -18;
+
   return (
-    <section 
-      style={{ 
-        height: exactScreenHeight, 
-        minHeight: exactScreenHeight,
-        maxHeight: exactScreenHeight
-      }}
-      className="relative w-full h-[calc(100svh-65px)] lg:h-screen flex flex-col justify-between items-center overflow-hidden bg-[#241C17] pt-16 sm:pt-20 pb-3 px-4 rounded-b-[14px] sm:rounded-b-[18px] md:rounded-b-[24px] shadow-2xl z-10"
+    <section
+      className="
+        relative
+        w-full
+        h-[100svh]
+        min-h-[100svh]
+        md:h-screen
+        md:min-h-screen
+        overflow-hidden
+        bg-[#D8C09A]
+        z-10
+      "
     >
-      
-      {/* Background Image: Rajasthan Architecture from Pexels */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center transition-transform duration-[12000ms] ease-out scale-105 pointer-events-none"
-        style={{ 
-          backgroundImage: `url("${pexelsHeroImage}")`,
-          backgroundPosition: 'center center'
+      {/* =========================================================
+          HERO IMAGE
+          ========================================================= */}
+      <div
+        className="
+          absolute
+          inset-0
+          overflow-hidden
+          will-change-transform
+        "
+        style={{
+          transform: `translate3d(0, ${translateY}px, 0)`,
+          borderBottomLeftRadius: `${radius}px`,
+          borderBottomRightRadius: `${radius}px`,
         }}
-      />
-      
-      {/* Light Sunlit Overlay: Crisp & Vibrant (No Blackout) */}
-      <div className="absolute inset-0 bg-black/20 pointer-events-none" />
-      <div className="absolute inset-0 bg-gradient-to-b from-black/45 via-transparent to-black/50 pointer-events-none" />
+      >
+        {/* Main Background Image */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-cover
+            bg-center
+            pointer-events-none
+          "
+          style={{
+            backgroundImage: `url("${heroImage}")`,
+            backgroundPosition: 'center center',
+          }}
+        />
 
-      {/* Top Spacer to balance fixed header */}
-      <div className="w-full h-2 sm:h-6 shrink-0" />
+        {/* Very light overall overlay */}
+        <div
+          className="
+            absolute
+            inset-0
+            bg-black/[0.025]
+            pointer-events-none
+          "
+        />
 
-      {/* Centered Hero Content with Perfect 2-Line Alignment & Compact Sizing */}
-      <div className="relative z-20 max-w-3xl w-full mx-auto text-center flex flex-col items-center justify-center my-auto px-2">
-        
-        {/* Eyebrow in Gold Tracking */}
-        <span className="font-sans text-[10px] sm:text-[11.5px] tracking-[0.28em] uppercase font-semibold text-[#F7F2E8] drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] mb-2">
-          LUXURY HOTEL & DESERT RESORT
-        </span>
+        {/* Subtle top/bottom contrast */}
+        <div
+          className="
+            absolute
+            inset-0
+            pointer-events-none
+            bg-gradient-to-b
+            from-black/[0.10]
+            via-transparent
+            to-black/[0.06]
+          "
+        />
 
-        {/* Main Royal Title: Strictly 2 Lines with refined responsive sizing */}
-        <h1 className="font-serif text-[20px] sm:text-2xl md:text-3xl lg:text-[40px] text-white font-normal tracking-[0.05em] uppercase drop-shadow-[0_3px_12px_rgba(0,0,0,0.95)] leading-[1.22] mb-2.5 max-w-2xl">
-          <span className="block">Experience The World's Best</span>
-          <span className="block">Luxury Desert Retreat</span>
-        </h1>
-
-        {/* Supporting Subtitle */}
-        <p className="font-sans text-[12px] sm:text-[13.5px] text-white/90 font-light leading-relaxed tracking-wide drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] max-w-xs sm:max-w-md mx-auto mb-4 sm:mb-5">
-          A timeless palatial sanctuary in Jaisalmer rooted in Rajasthan's living heritage.
-        </p>
-
-        {/* Center Golden Button */}
-        <div>
-          <a 
-            href={whatsappBooking}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-[#C99A5B] hover:bg-[#b5884b] text-white px-7 py-2.5 sm:px-8 sm:py-3 text-[10.5px] sm:text-[11px] font-sans font-semibold tracking-[0.2em] uppercase rounded-[2px] shadow-xl hover:shadow-2xl transition-all duration-300"
-          >
-            BOOK YOUR STAY
-          </a>
-        </div>
-
+        {/* Very soft local contrast behind text */}
+        <div
+          className="
+            absolute
+            left-1/2
+            top-[48%]
+            -translate-x-1/2
+            -translate-y-1/2
+            w-[88%]
+            sm:w-[70%]
+            md:w-[600px]
+            lg:w-[700px]
+            h-[220px]
+            sm:h-[250px]
+            md:h-[280px]
+            bg-black/[0.025]
+            blur-3xl
+            pointer-events-none
+          "
+        />
       </div>
 
-      {/* Subtle Bottom Scroll Cue (Visible right above bottom rounded border) */}
-      <a 
-        href="#about"
-        className="relative z-20 flex flex-col items-center gap-1 text-white/80 hover:text-white transition-colors group cursor-pointer shrink-0 pb-1"
-        aria-label="Scroll to About"
+      {/* =========================================================
+          CENTER CONTENT AREA
+          ========================================================= */}
+      <div
+        className="
+          relative
+          z-20
+          w-full
+          h-full
+          flex
+          items-center
+          justify-center
+          px-5
+          sm:px-8
+          md:px-10
+          lg:px-12
+          pt-16
+          sm:pt-20
+          md:pt-24
+          pb-12
+          sm:pb-14
+          md:pb-16
+        "
       >
-        <span className="font-sans text-[8.5px] tracking-[0.28em] uppercase font-light">
+        {/* =======================================================
+            CONTENT GROUP
+            ======================================================= */}
+        <div
+          className="
+            w-full
+            max-w-[1100px]
+            mx-auto
+            text-center
+            flex
+            flex-col
+            items-center
+            justify-center
+          "
+        >
+          {/* Eyebrow */}
+          <span
+            className="
+              font-sans
+              text-[9px]
+              sm:text-[10px]
+              md:text-[11px]
+              tracking-[0.22em]
+              sm:tracking-[0.25em]
+              md:tracking-[0.28em]
+              uppercase
+              font-semibold
+              text-white
+              drop-shadow-[0_2px_7px_rgba(0,0,0,0.65)]
+              mb-3
+              sm:mb-3.5
+              md:mb-4
+            "
+          >
+            LUXURY HOTEL & DESERT RESORT
+          </span>
+
+          {/* =====================================================
+              MAIN HEADING
+              ===================================================== */}
+          <h1
+            className="
+              font-serif
+              font-normal
+              uppercase
+              text-white
+              leading-[1.12]
+              tracking-[0.01em]
+              drop-shadow-[0_3px_12px_rgba(0,0,0,0.72)]
+
+              text-[26px]
+              sm:text-[30px]
+              md:text-[35px]
+              lg:text-[43px]
+              xl:text-[48px]
+
+              w-full
+
+              max-w-[340px]
+              sm:max-w-[520px]
+              md:max-w-[680px]
+              lg:max-w-[820px]
+              xl:max-w-[900px]
+
+              mx-auto
+            "
+          >
+            <span className="block">
+              Experience The World's Best
+            </span>
+
+            <span className="block mt-1 sm:mt-1.5 md:mt-2">
+              Luxury Desert Retreat
+            </span>
+          </h1>
+
+          {/* =====================================================
+              JMB INTRODUCTION
+              ===================================================== */}
+          <p
+            className="
+              mt-4
+              sm:mt-4.5
+              md:mt-5
+
+              font-sans
+              font-light
+              text-white
+
+              text-[11.5px]
+              sm:text-[12.5px]
+              md:text-[13.5px]
+              lg:text-[14px]
+
+              leading-[1.65]
+              sm:leading-[1.7]
+
+              drop-shadow-[0_2px_7px_rgba(0,0,0,0.68)]
+
+              max-w-[300px]
+              sm:max-w-[450px]
+              md:max-w-[560px]
+              lg:max-w-[600px]
+
+              mx-auto
+            "
+          >
+            JMB Jaisalmer brings together refined stays, desert experiences
+            and effortless travel across the Golden City.
+          </p>
+
+          {/* =====================================================
+              BOOK YOUR STAY
+              ===================================================== */}
+          <div
+            className="
+              mt-5
+              sm:mt-6
+              md:mt-7
+            "
+          >
+            <a
+              href={whatsappBooking}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                inline-flex
+                items-center
+                justify-center
+
+                bg-[#C99A5B]
+                hover:bg-[#B88A4E]
+
+                text-white
+
+                px-6
+                py-2.5
+                sm:px-7
+                sm:py-3
+                md:px-8
+                md:py-3.5
+
+                text-[9.5px]
+                sm:text-[10px]
+                md:text-[10.5px]
+
+                font-sans
+                font-semibold
+                tracking-[0.18em]
+                uppercase
+
+                rounded-[2px]
+
+                shadow-lg
+                hover:shadow-xl
+
+                transition-all
+                duration-300
+
+                active:scale-[0.98]
+              "
+            >
+              BOOK YOUR STAY
+            </a>
+          </div>
+        </div>
+      </div>
+
+      {/* =========================================================
+          EXPLORE CUE
+          ========================================================= */}
+      <a
+        href="#about"
+        aria-label="Scroll to About"
+        className="
+          absolute
+          z-30
+          bottom-3
+          sm:bottom-4
+          md:bottom-5
+          left-1/2
+          -translate-x-1/2
+
+          flex
+          flex-col
+          items-center
+          gap-1.5
+
+          text-white/85
+          hover:text-white
+
+          transition-colors
+          duration-300
+
+          cursor-pointer
+        "
+      >
+        <span
+          className="
+            font-sans
+            text-[8px]
+            sm:text-[8.5px]
+            md:text-[9px]
+            tracking-[0.26em]
+            uppercase
+            font-light
+            drop-shadow-[0_1px_5px_rgba(0,0,0,0.65)]
+          "
+        >
           EXPLORE
         </span>
-        <div className="w-[1px] h-3.5 bg-gradient-to-b from-white/80 to-transparent group-hover:h-5 transition-all duration-300" />
+
+        <div
+          className="
+            w-[1px]
+            h-4
+            sm:h-4.5
+            md:h-5
+            bg-gradient-to-b
+            from-white/85
+            to-transparent
+            transition-all
+            duration-300
+          "
+        />
       </a>
 
+      {/* =========================================================
+          BOTTOM BORDER
+          ========================================================= */}
+      <div
+        className="
+          absolute
+          inset-x-0
+          bottom-0
+          z-40
+          pointer-events-none
+          border-b
+          border-white/10
+        "
+        style={{
+          borderBottomLeftRadius: `${radius}px`,
+          borderBottomRightRadius: `${radius}px`,
+        }}
+      />
     </section>
   );
 }

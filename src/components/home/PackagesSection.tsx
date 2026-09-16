@@ -46,9 +46,23 @@ const packages = [
 
 export function PackagesSection() {
   return (
-    <section className="relative overflow-hidden bg-[#FAF5EC] pt-14 sm:pt-16 pb-16 md:pb-24">
-
-      {/* Subtle Heritage Pattern */}
+    <section
+      className="
+        relative
+        overflow-hidden
+        bg-[#FAF5EC]
+        pt-14
+        sm:pt-16
+        md:pt-20
+        lg:pt-24
+        pb-14
+        sm:pb-16
+        md:pb-20
+      "
+    >
+      {/* =========================================================
+          SUBTLE HERITAGE PATTERN
+          ========================================================= */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.025]">
         <svg
           className="w-full h-full"
@@ -71,203 +85,516 @@ export function PackagesSection() {
         </svg>
       </div>
 
-      <div className="relative w-[92%] max-w-7xl mx-auto">
+      <div
+        className="
+          relative
+          w-[90%]
+          sm:w-[88%]
+          md:w-[86%]
+          max-w-7xl
+          mx-auto
+        "
+      >
+        {/* =======================================================
+            SECTION HEADER
+            ======================================================= */}
+        <div
+          className="
+            text-center
+            mb-9
+            sm:mb-11
+            md:mb-13
+          "
+        >
+          {/* Small divider */}
+          <div className="flex items-center justify-center gap-3 mb-4">
+            <span className="w-8 sm:w-10 h-px bg-[#C99A5B]/50" />
 
-        {/* Section Header */}
-        <div className="text-center mb-10 sm:mb-12">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#C99A5B]" />
 
-          <span className="font-sans text-[10px] sm:text-[11px] tracking-[0.32em] uppercase text-[#C99A5B] font-bold block mb-3">
+            <span className="w-8 sm:w-10 h-px bg-[#C99A5B]/50" />
+          </div>
+
+          {/* Label */}
+          <span
+            className="
+              block
+              font-sans
+              text-[9px]
+              sm:text-[10px]
+              md:text-[11px]
+              tracking-[0.28em]
+              sm:tracking-[0.32em]
+              uppercase
+              text-[#C99A5B]
+              font-bold
+              mb-2.5
+            "
+          >
             SIGNATURE PACKAGES
           </span>
 
-          <h2 className="font-serif text-4xl sm:text-5xl lg:text-[48px] text-[#241C17] font-normal leading-tight">
+          {/* Heading */}
+          <h2
+            className="
+              font-serif
+              text-[#241C17]
+              font-normal
+              text-[30px]
+              sm:text-[38px]
+              md:text-[44px]
+              lg:text-[48px]
+              leading-[1.15]
+            "
+          >
             Curated Jaisalmer Journeys
           </h2>
 
-          <div className="flex items-center justify-center gap-3 mt-5">
-            <span className="w-10 h-[1px] bg-[#C99A5B]" />
-            <span className="w-1.5 h-1.5 rounded-full bg-[#C99A5B]" />
-            <span className="w-10 h-[1px] bg-[#C99A5B]" />
-          </div>
-
-          <p className="font-sans text-[13px] sm:text-[14px] text-[#786A5C] font-light mt-5 max-w-lg mx-auto leading-6">
-            Royal stays, desert adventures and cultural experiences,
-            thoughtfully brought together for your Jaisalmer escape.
-          </p>
+          {/* No paragraph here */}
         </div>
 
-        {/* Package Cards */}
-        <div className="flex flex-col gap-7">
-
+        {/* =======================================================
+            PACKAGE CARDS
+            ======================================================= */}
+        <div className="flex flex-col gap-6 sm:gap-7">
           {packages.map((pkg, i) => (
-            <div
+            <article
               key={i}
               className="
                 group
-                flex flex-col md:flex-row
+                flex
+                flex-col
+                lg:flex-row
+
                 bg-white
+
                 overflow-hidden
-                border border-[#E4D5BD]
-                transition-all duration-500
+
+                border
+                border-[#E4D5BD]
+
+                rounded-[7px]
+
+                transition-all
+                duration-500
+
                 hover:border-[#C99A5B]/60
                 hover:shadow-[0_15px_45px_rgba(73,51,29,0.08)]
               "
             >
+              {/* =================================================
+                  IMAGE AREA
+                  ================================================= */}
+              <div
+                className="
+                  w-full
+                  lg:w-[43%]
+                  shrink-0
 
-              {/* Image Collage */}
-              <div className="w-full md:w-[42%] lg:w-[43%] shrink-0 p-2 bg-[#FAF5EC]">
+                  p-2
+                  sm:p-2.5
 
-                <div className="flex gap-1.5 h-56 sm:h-64 md:h-full min-h-[300px]">
+                  bg-[#FAF5EC]
+                "
+              >
+                <div
+                  className="
+                    flex
+                    gap-1.5
 
+                    h-[220px]
+                    sm:h-[250px]
+                    md:h-[280px]
+                    lg:h-full
+                    lg:min-h-[360px]
+
+                    overflow-hidden
+                    rounded-[5px]
+                  "
+                >
                   {/* Main Image */}
-                  <div className="flex-[2] relative overflow-hidden">
+                  <div
+                    className="
+                      relative
+                      flex-[2]
+                      overflow-hidden
 
+                      rounded-[4px]
+
+                      border
+                      border-white
+                    "
+                  >
                     <img
                       src={pkg.images[0]}
                       alt={pkg.title}
                       className="
-                        w-full h-full object-cover
-                        transition-transform duration-700
+                        w-full
+                        h-full
+                        object-cover
+
+                        transition-transform
+                        duration-700
                         group-hover:scale-[1.04]
                       "
                     />
 
-                    {/* Soft Image Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-transparent" />
+                    {/* Image overlay */}
+                    <div
+                      className="
+                        absolute
+                        inset-0
+                        bg-gradient-to-t
+                        from-black/40
+                        via-transparent
+                        to-transparent
+                      "
+                    />
 
-                    {/* Number */}
-                    <span className="absolute top-4 left-4 font-serif text-5xl text-white/30 font-normal leading-none select-none">
+                    {/* Package number */}
+                    <span
+                      className="
+                        absolute
+                        top-3
+                        left-3
+                        sm:top-4
+                        sm:left-4
+
+                        font-serif
+                        text-4xl
+                        sm:text-5xl
+
+                        text-white/35
+                        font-normal
+                        leading-none
+                        select-none
+                      "
+                    >
                       {pkg.number}
                     </span>
 
-                    {/* Package Tag */}
-                    <span className="
-                      absolute bottom-4 left-4
-                      bg-white/90
-                      text-[#241C17]
-                      font-sans text-[8px]
-                      font-bold tracking-[0.16em]
-                      uppercase
-                      px-3 py-2
-                    ">
+                    {/* Package tag */}
+                    <span
+                      className="
+                        absolute
+                        bottom-3
+                        left-3
+                        sm:bottom-4
+                        sm:left-4
+
+                        bg-white/90
+
+                        text-[#241C17]
+
+                        font-sans
+                        text-[7px]
+                        sm:text-[8px]
+
+                        font-bold
+                        tracking-[0.14em]
+
+                        uppercase
+
+                        px-2.5
+                        py-1.5
+                        sm:px-3
+                        sm:py-2
+
+                        rounded-[2px]
+                      "
+                    >
                       {pkg.tag}
                     </span>
 
-                    {/* Popular Badge */}
+                    {/* Popular */}
                     {pkg.badge && (
-                      <span className="
-                        absolute top-4 right-4
-                        bg-[#C99A5B]
-                        text-white
-                        font-sans text-[8px]
-                        font-bold tracking-[0.16em]
-                        uppercase
-                        px-3 py-2
-                      ">
+                      <span
+                        className="
+                          absolute
+                          top-3
+                          right-3
+                          sm:top-4
+                          sm:right-4
+
+                          bg-[#C99A5B]
+
+                          text-white
+
+                          font-sans
+                          text-[7px]
+                          sm:text-[8px]
+
+                          font-bold
+                          tracking-[0.14em]
+
+                          uppercase
+
+                          px-2.5
+                          py-1.5
+                          sm:px-3
+                          sm:py-2
+
+                          rounded-[2px]
+                        "
+                      >
                         {pkg.badge}
                       </span>
                     )}
                   </div>
 
-                  {/* Two Smaller Images */}
-                  <div className="flex-[1] flex flex-col gap-1.5">
+                  {/* Two Small Images */}
+                  <div
+                    className="
+                      flex-[1]
+                      flex
+                      flex-col
+                      gap-1.5
+                      min-w-0
+                    "
+                  >
+                    <div
+                      className="
+                        flex-1
+                        relative
+                        overflow-hidden
 
-                    <div className="flex-1 relative overflow-hidden">
+                        rounded-[4px]
+
+                        border
+                        border-white
+                      "
+                    >
                       <img
                         src={pkg.images[1]}
                         alt={`${pkg.title} 2`}
                         className="
-                          w-full h-full object-cover
-                          transition-transform duration-700
+                          w-full
+                          h-full
+                          object-cover
+
+                          transition-transform
+                          duration-700
+
                           group-hover:scale-[1.04]
                         "
                       />
                     </div>
 
-                    <div className="flex-1 relative overflow-hidden">
+                    <div
+                      className="
+                        flex-1
+                        relative
+                        overflow-hidden
+
+                        rounded-[4px]
+
+                        border
+                        border-white
+                      "
+                    >
                       <img
                         src={pkg.images[2]}
                         alt={`${pkg.title} 3`}
                         className="
-                          w-full h-full object-cover
-                          transition-transform duration-700
+                          w-full
+                          h-full
+                          object-cover
+
+                          transition-transform
+                          duration-700
+
                           group-hover:scale-[1.04]
                         "
                       />
                     </div>
-
                   </div>
                 </div>
               </div>
 
-              {/* Content */}
-              <div className="flex flex-col p-6 sm:p-8 lg:p-9 flex-grow">
+              {/* =================================================
+                  CONTENT AREA
+                  ================================================= */}
+              <div
+                className="
+                  flex
+                  flex-col
+                  flex-grow
 
-                {/* Title + Price */}
-                <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-5 mb-5">
+                  p-5
+                  sm:p-7
+                  md:p-8
+                  lg:p-9
+                "
+              >
+                {/* =================================================
+                    TITLE + PRICE
+                    ================================================= */}
+                <div
+                  className="
+                    flex
+                    flex-col
+                    sm:flex-row
+                    sm:items-start
+                    sm:justify-between
 
-                  <div>
+                    gap-4
+                    sm:gap-5
 
-                    <span className="font-sans text-[9px] tracking-[0.25em] uppercase text-[#A98252] font-bold block mb-2">
+                    mb-5
+                  "
+                >
+                  <div className="min-w-0">
+                    <span
+                      className="
+                        font-sans
+                        text-[8px]
+                        sm:text-[9px]
+
+                        tracking-[0.23em]
+                        uppercase
+
+                        text-[#A98252]
+                        font-bold
+
+                        block
+                        mb-1.5
+                      "
+                    >
                       PACKAGE {pkg.number}
                     </span>
 
-                    <h3 className="
-                      font-serif
-                      text-[27px] sm:text-[30px]
-                      text-[#241C17]
-                      font-normal
-                      leading-tight
-                    ">
+                    <h3
+                      className="
+                        font-serif
+                        text-[25px]
+                        sm:text-[29px]
+                        md:text-[31px]
+
+                        text-[#241C17]
+
+                        font-normal
+                        leading-[1.15]
+                      "
+                    >
                       {pkg.title}
                     </h3>
 
-                    <span className="font-sans text-[11px] text-[#A98252] font-semibold uppercase tracking-[0.12em] mt-2 block">
+                    <span
+                      className="
+                        font-sans
+                        text-[9px]
+                        sm:text-[10px]
+
+                        text-[#A98252]
+
+                        font-semibold
+                        uppercase
+                        tracking-[0.10em]
+
+                        mt-2
+                        block
+                      "
+                    >
                       {pkg.highlight}
                     </span>
-
                   </div>
 
-                  <div className="text-left sm:text-right shrink-0">
+                  {/* Price */}
+                  <div
+                    className="
+                      text-left
+                      sm:text-right
+                      shrink-0
+                    "
+                  >
+                    <span
+                      className="
+                        font-serif
+                        text-[28px]
+                        sm:text-[32px]
 
-                    <span className="
-                      font-serif
-                      text-[30px] sm:text-[34px]
-                      text-[#241C17]
-                      font-normal
-                      block
-                      leading-none
-                    ">
+                        text-[#241C17]
+
+                        font-normal
+                        leading-none
+                        block
+                      "
+                    >
                       {pkg.price}
                     </span>
 
-                    <span className="font-sans text-[10px] text-[#999] font-light mt-1 block">
+                    <span
+                      className="
+                        font-sans
+                        text-[9px]
+                        sm:text-[10px]
+
+                        text-[#999]
+
+                        font-light
+
+                        mt-1
+                        block
+                      "
+                    >
                       {pkg.priceNote}
                     </span>
-
                   </div>
-
                 </div>
 
                 {/* Divider */}
-                <div className="w-full h-px bg-[#E8D9BE] mb-5" />
+                <div
+                  className="
+                    w-full
+                    h-px
+                    bg-[#E8D9BE]
+                    mb-5
+                  "
+                />
 
-                {/* Inclusions */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 mb-7">
+                {/* =================================================
+                    INCLUSIONS
+                    ================================================= */}
+                <div
+                  className="
+                    grid
+                    grid-cols-1
+                    sm:grid-cols-2
 
+                    gap-x-6
+                    gap-y-3
+
+                    mb-6
+                    sm:mb-7
+                  "
+                >
                   {pkg.inclusions.map((item, j) => (
                     <div
                       key={j}
-                      className="flex items-start gap-3"
+                      className="
+                        flex
+                        items-start
+                        gap-2.5
+                      "
                     >
+                      <span
+                        className="
+                          w-5
+                          h-5
 
-                      <span className="
-                        w-5 h-5
-                        border border-[#C99A5B]/40
-                        flex items-center justify-center
-                        shrink-0
-                        mt-[1px]
-                      ">
+                          border
+                          border-[#C99A5B]/40
+
+                          flex
+                          items-center
+                          justify-center
+
+                          shrink-0
+                          mt-[1px]
+
+                          rounded-[2px]
+                        "
+                      >
                         <Check
                           size={11}
                           className="text-[#C99A5B]"
@@ -275,79 +602,128 @@ export function PackagesSection() {
                         />
                       </span>
 
-                      <span className="
-                        font-sans
-                        text-[12px] sm:text-[13px]
-                        text-[#5F554D]
-                        leading-5
-                      ">
+                      <span
+                        className="
+                          font-sans
+                          text-[11.5px]
+                          sm:text-[12.5px]
+
+                          text-[#5F554D]
+
+                          leading-[1.55]
+                        "
+                      >
                         {item}
                       </span>
-
                     </div>
                   ))}
-
                 </div>
 
-                {/* Bottom CTA */}
-                <div className="
-                  flex flex-wrap
-                  items-center
-                  gap-x-6 gap-y-4
-                  pt-5
-                  border-t border-[#E8D9BE]
-                  mt-auto
-                ">
+                {/* =================================================
+                    CTA
+                    ================================================= */}
+                <div
+                  className="
+                    flex
+                    flex-wrap
+                    items-center
 
+                    gap-x-5
+                    gap-y-3
+
+                    pt-4
+                    sm:pt-5
+
+                    border-t
+                    border-[#E8D9BE]
+
+                    mt-auto
+                  "
+                >
                   <a
                     href={pkg.wa}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
-                      flex items-center gap-2
-                      text-[10px]
-                      font-sans font-bold
-                      tracking-[0.16em]
+                      flex
+                      items-center
+                      gap-2
+
+                      text-[9px]
+                      sm:text-[10px]
+
+                      font-sans
+                      font-bold
+
+                      tracking-[0.14em]
                       uppercase
+
                       text-[#241C17]
+
                       hover:text-[#C99A5B]
-                      transition-colors duration-300
-                      border-b border-[#C99A5B]
+
+                      transition-colors
+                      duration-300
+
+                      border-b
+                      border-[#C99A5B]
+
                       pb-1.5
                     "
                   >
-                    <MessageCircle size={13} strokeWidth={1.8} />
+                    <MessageCircle
+                      size={13}
+                      strokeWidth={1.8}
+                    />
+
                     <span>Enquire on WhatsApp</span>
                   </a>
 
-                  <span className="hidden sm:block text-[#D9CCBA]">
+                  <span
+                    className="
+                      hidden
+                      sm:block
+                      text-[#D9CCBA]
+                    "
+                  >
                     |
                   </span>
 
                   <a
                     href="#"
                     className="
-                      flex items-center gap-2
-                      text-[10px]
-                      font-sans font-medium
-                      tracking-[0.14em]
+                      flex
+                      items-center
+                      gap-2
+
+                      text-[9px]
+                      sm:text-[10px]
+
+                      font-sans
+                      font-medium
+
+                      tracking-[0.13em]
                       uppercase
+
                       text-[#8D837A]
+
                       hover:text-[#C99A5B]
-                      transition-colors duration-300
+
+                      transition-colors
+                      duration-300
                     "
                   >
                     <span>View Details</span>
-                    <ArrowRight size={12} strokeWidth={1.7} />
+
+                    <ArrowRight
+                      size={12}
+                      strokeWidth={1.7}
+                    />
                   </a>
-
                 </div>
-
               </div>
-
-            </div>
+            </article>
           ))}
-
         </div>
       </div>
     </section>
