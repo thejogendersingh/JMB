@@ -145,7 +145,7 @@ export function Footer() {
                     href="#experiences"
                     className="transition-colors duration-300 hover:text-[#C99A5B]"
                   >
-                    JMB Experiences
+                    Vasudha Experiences
                   </a>
                 </li>
 

@@ -1,17 +1,17 @@
 import { useEffect, useState } from 'react';
-import carFleetImg from '../../assets/places/car-fleet.webp';
-import badaBaghImg from '../../assets/places/bada-bagh.webp';
+import heroDesertSafariImg from '../../assets/places/hero-desert-safari.webp';
+import heroJaisalmerViewImg from '../../assets/places/hero-jaisalmer-view.webp';
 
 const heroSlides = [
   {
-    image: carFleetImg,
-    tag: 'SAM DESERT EXPEDITIONS & LUXURY FLEET',
-    position: 'center 35%',
+    image: heroDesertSafariImg,
+    tag: 'SAM DESERT EXPEDITIONS & SAFARI',
+    position: 'center 40%',
   },
   {
-    image: badaBaghImg,
-    tag: 'ROYAL HERITAGE & SUNLIT CHHATRIS',
-    position: 'center 38%',
+    image: heroJaisalmerViewImg,
+    tag: 'THE GOLDEN FORT OF JAISALMER',
+    position: 'center 40%',
   },
 ];
 
@@ -259,7 +259,7 @@ export function Hero() {
           </h1>
 
           {/* =====================================================
-              JMB INTRODUCTION
+              INTRODUCTION
               ===================================================== */}
           <p
             className="

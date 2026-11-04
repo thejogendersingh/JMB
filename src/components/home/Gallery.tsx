@@ -73,7 +73,7 @@ export function Gallery() {
         >
           <defs>
             <pattern
-              id="jmbGalleryPattern"
+              id="vasudhaGalleryPattern"
               width="150"
               height="150"
               patternUnits="userSpaceOnUse"
@@ -129,7 +129,7 @@ export function Gallery() {
           <rect
             width="100%"
             height="100%"
-            fill="url(#jmbGalleryPattern)"
+            fill="url(#vasudhaGalleryPattern)"
           />
         </svg>
       </div>

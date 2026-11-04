@@ -97,7 +97,7 @@ export function Header() {
       >
 
         {/* ===================================================
-            SUBTLE JMB HERITAGE FLORAL DETAILS
+            SUBTLE HERITAGE FLORAL DETAILS
         ==================================================== */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
 
@@ -323,7 +323,7 @@ export function Header() {
               </div>
 
               <span className="font-serif text-[10px] italic text-[#8A6A4A]">
-                JMB
+                HVH
               </span>
             </div>
 
