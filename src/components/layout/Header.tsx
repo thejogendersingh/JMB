@@ -379,7 +379,7 @@ export function Header() {
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
           showSolidHeader
             ? 'bg-white/95 backdrop-blur-md py-3 sm:py-4 shadow-[0_4px_20px_rgba(36,28,23,0.06)] border-b border-[#33251C]/10 text-[#241C17]'
-            : 'bg-gradient-to-b from-black/75 via-black/35 to-transparent pt-5 pb-4 sm:pt-8 sm:pb-5 text-white'
+            : 'bg-transparent pt-4 pb-3 sm:pt-6 sm:pb-4 text-white'
         }`}
       >
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between">
