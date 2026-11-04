@@ -1,17 +1,19 @@
 import { useEffect, useState } from 'react';
-import heroDesertSafariImg from '../../assets/places/hero-desert-safari.webp';
-import heroJaisalmerViewImg from '../../assets/places/hero-jaisalmer-view.webp';
+import tharDesktopImg from '../../assets/places/hero-thar-roxx-desktop.webp';
+import tharMobileImg from '../../assets/places/hero-thar-roxx-mobile.webp';
+import jaisalmerDesktopImg from '../../assets/places/hero-jaisalmer-desktop.webp';
+import jaisalmerMobileImg from '../../assets/places/hero-jaisalmer-mobile.webp';
 
 const heroSlides = [
   {
-    image: heroDesertSafariImg,
-    tag: 'SAM DESERT EXPEDITIONS & SAFARI',
-    position: 'center 40%',
+    desktop: tharDesktopImg,
+    mobile: tharMobileImg,
+    tag: 'SAM DESERT EXPEDITIONS & THAR ROXX',
   },
   {
-    image: heroJaisalmerViewImg,
+    desktop: jaisalmerDesktopImg,
+    mobile: jaisalmerMobileImg,
     tag: 'THE GOLDEN FORT OF JAISALMER',
-    position: 'center 40%',
   },
 ];
 
@@ -105,8 +107,6 @@ export function Hero() {
             className={`
               absolute
               inset-0
-              bg-cover
-              bg-center
               pointer-events-none
               transition-all
               duration-1000
@@ -117,11 +117,24 @@ export function Hero() {
                   : 'opacity-0 scale-105 pointer-events-none'
               }
             `}
-            style={{
-              backgroundImage: `url("${slide.image}")`,
-              backgroundPosition: slide.position || 'center center',
-            }}
-          />
+          >
+            {/* Desktop Background (hidden on mobile, visible on md and up) */}
+            <div
+              className="hidden md:block absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url("${slide.desktop}")`,
+                backgroundPosition: 'center 45%',
+              }}
+            />
+            {/* Mobile Background (visible on mobile, hidden on md and up) */}
+            <div
+              className="block md:hidden absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url("${slide.mobile}")`,
+                backgroundPosition: 'center center',
+              }}
+            />
+          </div>
         ))}
 
         {/* Luminous sky-preserving contrast overlay: ensures bright sky-blue tones shine while maintaining text clarity */}
@@ -131,7 +144,7 @@ export function Hero() {
             inset-0
             pointer-events-none
             bg-gradient-to-b
-            from-black/35
+            from-black/25
             via-transparent
             to-black/30
           "
