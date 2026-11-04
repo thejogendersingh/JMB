@@ -1,20 +1,26 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo-hvh.png';
+import logoWhite from '../../assets/logo-hvh-white.png';
 
 const navLinks = [
-  { name: 'STAY', href: '#stay' },
-  { name: 'EXPERIENCES', href: '#experiences' },
-  { name: 'TOURS', href: '#tours' },
-  { name: 'CAR RENTAL', href: '#car-rental' },
-  { name: 'GALLERY', href: '#gallery' },
-  { name: 'CONTACT', href: '#contact' },
+  { name: 'STAY', href: '/hotel', hash: '#stay' },
+  { name: 'TOURS', href: '/tour', hash: '#tours' },
+  { name: 'CAR RENTAL', href: '/car-rental', hash: '#car-rental' },
+  { name: 'EXPERIENCES', href: '/#experiences', hash: '#experiences' },
+  { name: 'GALLERY', href: '/#gallery', hash: '#gallery' },
+  { name: 'CONTACT', href: '/contact', hash: '#contact' },
 ];
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+
+  const isHomePage = location.pathname === '/';
+  const showSolidHeader = !isHomePage || isScrolled;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +45,7 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   const whatsappLink =
-    'https://wa.me/919667222879?text=Hello,%20I%20would%20like%20to%20reserve%20a%20stay%20at%20JMB%20Jaisalmer.';
+    'https://wa.me/917734862004?text=Hello,%20I%20would%20like%20to%20reserve%20a%20stay%20at%20Hotel%20Vasudha%20Heritage%20Jaisalmer.';
 
   const mobileDrawer = (
     <>
@@ -168,19 +174,13 @@ export function Header() {
           <div className="flex items-start justify-between pb-5 border-b border-[#33251C]/10">
 
             <div>
-              <img
-                src={logo}
-                alt="JMB Jaisalmer"
-                className="h-8 sm:h-9 w-auto"
-              />
-
-              <div className="flex items-center gap-2 mt-3">
-                <span className="w-5 h-px bg-[#C99A5B]" />
-
-                <span className="font-sans text-[7px] tracking-[0.27em] uppercase text-[#8A6A4A]">
-                  JAISALMER · RAJASTHAN
-                </span>
-              </div>
+              <Link to="/" onClick={() => setMobileMenuOpen(false)}>
+                <img
+                  src={logo}
+                  alt="Hotel Vasudha Heritage"
+                  className="h-8 sm:h-9 w-auto object-contain"
+                />
+              </Link>
             </div>
 
             {/* CLOSE */}
@@ -219,7 +219,7 @@ export function Header() {
               <span className="w-6 h-px bg-[#C99A5B]" />
 
               <span className="font-sans text-[7px] tracking-[0.3em] uppercase text-[#C99A5B]">
-                EXPLORE JMB
+                HOTEL VASUDHA HERITAGE
               </span>
             </div>
 
@@ -307,7 +307,7 @@ export function Header() {
                 </span>
 
                 <a
-                  href="tel:+919667222879"
+                  href="tel:+917734862004"
                   className="
                     font-sans
                     text-[12px]
@@ -318,7 +318,7 @@ export function Header() {
                     transition-colors
                   "
                 >
-                  +91 96672 22879
+                  +91 77348 62004
                 </a>
               </div>
 
@@ -377,7 +377,7 @@ export function Header() {
       ========================================================= */}
       <header
         className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          isScrolled
+          showSolidHeader
             ? 'bg-white/95 backdrop-blur-md py-3 sm:py-4 shadow-[0_4px_20px_rgba(36,28,23,0.06)] border-b border-[#33251C]/10 text-[#241C17]'
             : 'bg-gradient-to-b from-black/75 via-black/35 to-transparent pt-5 pb-4 sm:pt-8 sm:pb-5 text-white'
         }`}
@@ -385,17 +385,17 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12 flex items-center justify-between">
 
           {/* LOGO */}
-          <a href="#" className="flex items-center">
+          <Link to="/" className="flex items-center">
             <img
-              src={logo}
-              alt="JMB Jaisalmer"
-              className={`w-auto transition-all duration-300 ${
-                !isScrolled
-                  ? 'h-11 sm:h-12 md:h-14 lg:h-[58px] brightness-0 invert'
+              src={showSolidHeader ? logo : logoWhite}
+              alt="Hotel Vasudha Heritage"
+              className={`w-auto object-contain transition-all duration-300 ${
+                !showSolidHeader
+                  ? 'h-11 sm:h-12 md:h-14 lg:h-[54px]'
                   : 'h-10 sm:h-11 md:h-12 lg:h-[48px]'
               }`}
             />
-          </a>
+          </Link>
 
           {/* DESKTOP NAV */}
           <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
@@ -404,7 +404,7 @@ export function Header() {
                 key={link.name}
                 href={link.href}
                 className={`relative group font-sans text-[11px] tracking-[0.25em] uppercase font-medium transition-colors duration-300 ${
-                  isScrolled
+                  showSolidHeader
                     ? 'text-[#33251C] hover:text-[#C99A5B]'
                     : 'text-white/90 hover:text-white'
                 }`}
@@ -413,7 +413,7 @@ export function Header() {
 
                 <span
                   className={`absolute -bottom-1.5 left-0 w-0 h-px group-hover:w-full transition-all duration-300 ${
-                    isScrolled ? 'bg-[#C99A5B]' : 'bg-white'
+                    showSolidHeader ? 'bg-[#C99A5B]' : 'bg-white'
                   }`}
                 />
               </a>
@@ -439,7 +439,7 @@ export function Header() {
               onClick={() => setMobileMenuOpen(true)}
               aria-label="Open menu"
               className={`lg:hidden flex items-center gap-2 py-1.5 transition-colors ${
-                isScrolled
+                showSolidHeader
                   ? 'text-[#33251C] hover:text-[#C99A5B]'
                   : 'text-white hover:text-[#C99A5B]'
               }`}

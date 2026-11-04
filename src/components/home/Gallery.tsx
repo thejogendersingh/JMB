@@ -1,33 +1,37 @@
 import { useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
-const galleryItems = [
-  {
-    image:
-      'https://images.pexels.com/photos/33726139/pexels-photo-33726139.jpeg?auto=compress&cs=tinysrgb&w=1800',
-    alt: 'JMB Jaisalmer property',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1595576508898-0ad5c879a061?q=80&w=1800&auto=format&fit=crop',
-    alt: 'JMB Jaisalmer room',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=1800&auto=format&fit=crop',
-    alt: 'Jaisalmer desert',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=1800&auto=format&fit=crop',
-    alt: 'Jaisalmer journey',
-  },
-  {
-    image:
-      'https://images.unsplash.com/photo-1599839619722-39751411ea63?q=80&w=1800&auto=format&fit=crop',
-    alt: 'Jaisalmer Fort',
-  },
+const galleryImageModules = import.meta.glob<string>(
+  '../../assets/gallery/*.{jpeg,jpg,png}',
+  { eager: true, import: 'default' }
+);
+const galleryImages = Object.values(galleryImageModules);
+
+const galleryCaptions = [
+  'Luxury Sam Desert Camp & Evening Ambience',
+  'Desert Safari Camel Rides Across Golden Sand Dunes',
+  'Traditional Rajasthani Cultural Folk Dance Evening',
+  'Heritage Haveli Courtyard & Jaisalmer Architecture',
+  '4x4 Thar Adventure Dune Bashing across Sam Dunes',
+  'Romantic Sunset Dune Dining & Campfire Experience',
+  'Royal Swiss Desert Tents & Heritage Stays',
+  'Jaisalmer Golden Sonar Qila Scenic Views',
+  'Desert Wildlife & Natural Thar Landscapes',
+  'Historic Kuldhara Heritage Village Walkways',
+  'Vibrant Local Handicrafts & Heritage Culture',
+  'Stargazing & Desert Night Camping',
+  'Traditional Hospitality & Authentic Rajasthani Cuisine',
+  'Scenic Desert Sunset & Golden Hour Photography',
+  'Private Chauffeur Fleet & Luxury Desert Transfers',
+  'Golden City Sightseeing & Architectural Marvels',
+  'Authentic Sam Dunes Experience & Memories',
+  'Hotel Vasudha Heritage Signature Desert Moments',
 ];
+
+const galleryItems = galleryImages.map((img, i) => ({
+  image: img,
+  alt: galleryCaptions[i] || `Hotel Vasudha Heritage Jaisalmer Gallery Image ${i + 1}`,
+}));
 
 export function Gallery() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -139,7 +143,7 @@ export function Gallery() {
         <div className="mb-9 text-center sm:mb-11">
 
           <span className="mb-2.5 block font-sans text-[9px] font-semibold uppercase tracking-[0.3em] text-[#C99A5B] sm:text-[10px]">
-            JMB JAISALMER
+            HOTEL VASUDHA HERITAGE
           </span>
 
           <h2 className="font-serif text-[36px] font-normal leading-none text-[#241C17] sm:text-[43px] md:text-[48px]">
@@ -406,7 +410,7 @@ export function Gallery() {
             MOBILE DOTS
             ===================================================== */}
 
-        <div className="mt-5 flex items-center justify-center gap-1.5 md:hidden">
+        <div className="mt-5 flex items-center justify-center gap-1.5 md:hidden max-w-full overflow-x-auto px-4 py-1">
 
           {galleryItems.map((_, index) => (
             <button
@@ -416,13 +420,14 @@ export function Gallery() {
               aria-label={`Go to image ${index + 1}`}
               className={`
                 h-[3px]
+                shrink-0
                 rounded-full
                 transition-all
                 duration-300
                 ${
                   activeIndex === index
-                    ? 'w-6 bg-[#C99A5B]'
-                    : 'w-2.5 bg-[#241C17]/20'
+                    ? 'w-5 bg-[#C99A5B]'
+                    : 'w-2 bg-[#241C17]/20'
                 }
               `}
             />

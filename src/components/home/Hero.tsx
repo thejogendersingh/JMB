@@ -1,13 +1,37 @@
 import { useEffect, useState } from 'react';
+import desertCampImg from '../../assets/desert-camp.png';
+import carFleetImg from '../../assets/places/car-fleet.png';
+import desertDunesImg from '../../assets/places/desert-park.jpg';
+
+const heroSlides = [
+  {
+    image: desertCampImg,
+    tag: 'SAM DESERT RESORT & CAMP',
+  },
+  {
+    image: carFleetImg,
+    tag: 'DESERT SAFARI & LUXURY FLEET',
+  },
+  {
+    image: desertDunesImg,
+    tag: 'GOLDEN THAR DESERT DUNES',
+  },
+];
 
 export function Hero() {
   const whatsappBooking =
-    'https://wa.me/919667222879?text=Hello,%20I%20would%20like%20to%20plan%20my%20stay%20at%20JMB%20Jaisalmer.';
+    'https://wa.me/917734862004?text=Hello,%20I%20would%20like%20to%20plan%20my%20stay%20at%20Hotel%20Vasudha%20Heritage%20Jaisalmer.';
 
-  const heroImage =
-    'https://r2imghtlak.mmtcdn.com/r2-mmt-htl-image/htl-imgs/202412201437176756-74e4e2c4-ce4d-4e28-82c3-3aae7832dbbf.jpg';
-
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [scrollProgress, setScrollProgress] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     let ticking = false;
@@ -58,12 +82,12 @@ export function Hero() {
         md:h-screen
         md:min-h-screen
         overflow-hidden
-        bg-[#D8C09A]
+        bg-white
         z-10
       "
     >
       {/* =========================================================
-          HERO IMAGE
+          HERO IMAGE SLIDER (3 Images)
           ========================================================= */}
       <div
         className="
@@ -78,27 +102,37 @@ export function Hero() {
           borderBottomRightRadius: `${radius}px`,
         }}
       >
-        {/* Main Background Image */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-cover
-            bg-center
-            pointer-events-none
-          "
-          style={{
-            backgroundImage: `url("${heroImage}")`,
-            backgroundPosition: 'center center',
-          }}
-        />
+        {heroSlides.map((slide, index) => (
+          <div
+            key={index}
+            className={`
+              absolute
+              inset-0
+              bg-cover
+              bg-center
+              pointer-events-none
+              transition-all
+              duration-1000
+              ease-in-out
+              ${
+                index === currentSlide
+                  ? 'opacity-100 scale-100'
+                  : 'opacity-0 scale-105 pointer-events-none'
+              }
+            `}
+            style={{
+              backgroundImage: `url("${slide.image}")`,
+              backgroundPosition: 'center center',
+            }}
+          />
+        ))}
 
         {/* Very light overall overlay */}
         <div
           className="
             absolute
             inset-0
-            bg-black/[0.025]
+            bg-black/[0.15]
             pointer-events-none
           "
         />
@@ -110,9 +144,9 @@ export function Hero() {
             inset-0
             pointer-events-none
             bg-gradient-to-b
-            from-black/[0.10]
+            from-black/[0.25]
             via-transparent
-            to-black/[0.06]
+            to-black/[0.20]
           "
         />
 
@@ -131,11 +165,29 @@ export function Hero() {
             h-[220px]
             sm:h-[250px]
             md:h-[280px]
-            bg-black/[0.025]
+            bg-black/[0.08]
             blur-3xl
             pointer-events-none
           "
         />
+      </div>
+
+      {/* =========================================================
+          SLIDE INDICATOR PILLS (3 Images Selector)
+          ========================================================= */}
+      <div className="absolute z-30 bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 flex items-center gap-2.5">
+        {heroSlides.map((slide, i) => (
+          <button
+            key={i}
+            onClick={() => setCurrentSlide(i)}
+            aria-label={`Slide ${i + 1}: ${slide.tag}`}
+            className={`transition-all duration-400 rounded-full h-1.5 ${
+              i === currentSlide
+                ? 'w-7 sm:w-8 bg-[#C99A5B] shadow-[0_0_10px_rgba(201,154,91,0.9)]'
+                : 'w-2 bg-white/45 hover:bg-white/80'
+            }`}
+          />
+        ))}
       </div>
 
       {/* =========================================================
@@ -194,9 +246,11 @@ export function Hero() {
               mb-3
               sm:mb-3.5
               md:mb-4
+              transition-all
+              duration-500
             "
           >
-            LUXURY HOTEL & DESERT RESORT
+            {heroSlides[currentSlide].tag}
           </span>
 
           {/* =====================================================
@@ -269,7 +323,7 @@ export function Hero() {
               mx-auto
             "
           >
-            JMB Jaisalmer brings together refined stays, desert experiences
+            Hotel Vasudha Heritage brings together refined stays, desert experiences
             and effortless travel across the Golden City.
           </p>
 

@@ -3,140 +3,97 @@ import {
   BedDouble,
   Wind,
   Lock,
-  Briefcase,
   Wifi,
   Droplets,
   Coffee,
-  Bath,
+  CheckCircle2,
   ArrowUpRight,
 } from 'lucide-react';
 
 const categories = [
-  'Royal Suite',
-  'Mini Suite',
-  'Heritage Rooms',
-  'Super Deluxe Rooms',
-  'Deluxe Rooms',
-  'Economy Standard Rooms',
+  'Golden Heritage Room',
+  'Royal Deluxe Room',
+  'Maharaja Suite',
+  'Jaisalmer Grand Royal Suite',
 ];
 
 const roomData: Record<string, any> = {
-  'Royal Suite': {
-    title: 'Royal Suite',
-    subtitle: 'A refined stay designed for space, comfort and privacy.',
+  'Golden Heritage Room': {
+    title: 'Golden Heritage Room',
+    price: '₹3,500/-',
+    subtitle: 'Traditional Jaisalmer-inspired atmosphere with essential comfort.',
     description1:
-      'A spacious accommodation designed for guests looking for a more elevated and comfortable stay in Jaisalmer.',
+      'Comfortable stay with essential amenities and a traditional Jaisalmer-inspired atmosphere. Perfect for solo travellers, couples and budget-conscious guests seeking authentic Rajasthani warmth.',
     amenities: [
-      { icon: BedDouble, label: 'King Bed' },
-      { icon: Wind, label: 'Air Conditioner' },
-      { icon: Lock, label: 'Safe Locker' },
-      { icon: Briefcase, label: 'Work Desk' },
-      { icon: Wifi, label: 'Complimentary Wi-Fi' },
+      { icon: BedDouble, label: 'Comfortable Heritage Bed' },
+      { icon: Wind, label: 'Air Conditioning' },
+      { icon: Wifi, label: 'Wi-Fi (Subject to availability)' },
       { icon: Droplets, label: 'Hot & Cold Water' },
-    ],
-    images: [
-      'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      { icon: Lock, label: 'Safe & Housekeeping' },
+      { icon: Coffee, label: 'Breakfast / Meal Plan' },
     ],
   },
 
-  'Mini Suite': {
-    title: 'Mini Suite',
-    subtitle: 'Comfortable accommodation with a little more room to unwind.',
+  'Royal Deluxe Room': {
+    title: 'Royal Deluxe Room',
+    price: '₹5,500/-',
+    subtitle: 'Spacious accommodation with upgraded amenities for a relaxing stay.',
     description1:
-      'A thoughtfully arranged suite offering a relaxed setting with contemporary comfort for your Jaisalmer stay.',
+      'Spacious and comfortable room with upgraded amenities for a relaxing stay. Designed with authentic stone work, rich textiles and thoughtful conveniences for a truly restful holiday in the Golden City.',
     amenities: [
-      { icon: BedDouble, label: 'King Bed' },
-      { icon: Wind, label: 'Air Conditioner' },
-      { icon: Lock, label: 'Safe Locker' },
-      { icon: Wifi, label: 'Complimentary Wi-Fi' },
-      { icon: Droplets, label: 'Hot & Cold Water' },
+      { icon: BedDouble, label: 'King Size Deluxe Bed' },
+      { icon: Wind, label: 'Climate Control AC' },
+      { icon: Wifi, label: 'High-Speed Wi-Fi' },
+      { icon: Droplets, label: '24-Hour Hot & Cold Water' },
       { icon: Coffee, label: 'Tea & Coffee Maker' },
-    ],
-    images: [
-      'https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1600',
+      { icon: Lock, label: 'Daily Housekeeping & Safe' },
     ],
   },
 
-  'Heritage Rooms': {
-    title: 'Heritage Rooms',
-    subtitle: 'Timeless character with contemporary comfort.',
+  'Maharaja Suite': {
+    title: 'Maharaja Suite',
+    price: '₹7,500/-',
+    subtitle: 'Premium suite experience with extra space and enhanced comfort.',
     description1:
-      'Perfect for travellers seeking a refined Jaisalmer stay, combining traditional character with the comforts of modern hospitality.',
+      'Premium suite experience with extra space and enhanced comfort. Crafted for families and travellers seeking a touch of royal grandeur, spacious sitting area, and personalized concierge assistance.',
     amenities: [
-      { icon: BedDouble, label: 'Twin or King Bed' },
-      { icon: Wind, label: 'Air Conditioner / Oil Heater' },
-      { icon: Lock, label: 'Safe Locker' },
-      { icon: Bath, label: 'Bathrobe' },
+      { icon: BedDouble, label: 'Royal Maharaja King Bed' },
+      { icon: Wind, label: 'Split Air Conditioner' },
       { icon: Wifi, label: 'Complimentary Wi-Fi' },
-      { icon: Coffee, label: 'Tea & Coffee Maker' },
-    ],
-    images: [
-      'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      'https://images.pexels.com/photos/6487941/pexels-photo-6487941.jpeg?auto=compress&cs=tinysrgb&w=1000',
+      { icon: Droplets, label: 'Luxury Bath & Shower' },
+      { icon: Coffee, label: 'Tea / Coffee & Minibar' },
+      { icon: Lock, label: 'Luggage Assistance & Safe' },
     ],
   },
 
-  'Super Deluxe Rooms': {
-    title: 'Super Deluxe Rooms',
-    subtitle: 'Comfortable accommodation in Jaisalmer.',
+  'Jaisalmer Grand Royal Suite': {
+    title: 'Jaisalmer Grand Royal Suite',
+    price: '₹10,500/-',
+    subtitle: 'Our top-category stay designed for a luxurious and memorable experience.',
     description1:
-      'Discover a comfortable stay designed around the warmth and character of Jaisalmer, with the essential comforts needed for a relaxed visit.',
+      'Our top-category stay designed for guests looking for a luxurious and memorable Jaisalmer experience. Features opulent Rajasthani decor, private lounge space, and dedicated assistance for desert excursions.',
     amenities: [
-      { icon: BedDouble, label: 'Twin or King Bed Size' },
-      { icon: Wind, label: 'Air Conditioner' },
-      { icon: Lock, label: 'Safe Locker' },
-      { icon: Briefcase, label: 'Work Desk with Stationery' },
-      { icon: Wifi, label: 'Complimentary Wi-Fi' },
-      { icon: Droplets, label: '24 HR Hot & Cold Water' },
-    ],
-    images: [
-      'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      'https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    ],
-  },
-
-  'Deluxe Rooms': {
-    title: 'Deluxe Rooms',
-    subtitle: 'A comfortable stay with modern essentials.',
-    description1:
-      'Relax in a thoughtfully arranged room offering a comfortable setting and the essential amenities for a pleasant Jaisalmer stay.',
-    amenities: [
-      { icon: BedDouble, label: 'Twin or King Bed Size' },
-      { icon: Wind, label: 'Air Conditioner' },
-      { icon: Lock, label: 'Safe Locker' },
-      { icon: Wifi, label: 'Complimentary Wi-Fi' },
-      { icon: Droplets, label: 'Hot & Cold Water' },
-      { icon: Coffee, label: 'Tea & Coffee Maker' },
-    ],
-    images: [
-      'https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      'https://images.pexels.com/photos/6487941/pexels-photo-6487941.jpeg?auto=compress&cs=tinysrgb&w=1000',
-    ],
-  },
-
-  'Economy Standard Rooms': {
-    title: 'Economy Standard Rooms',
-    subtitle: 'Comfort and elegance at an affordable price.',
-    description1:
-      'The Economy Standard Room offers a blend of elegance and comfort, designed to provide a relaxing stay. The room features a soft, welcoming atmosphere with practical modern amenities.',
-    amenities: [
-      { icon: BedDouble, label: 'Twin or King Bed Size' },
-      { icon: Wind, label: 'Air Conditioner' },
-      { icon: Lock, label: 'Safe Locker' },
-      { icon: Briefcase, label: 'Work Desk with Stationery' },
-      { icon: Wifi, label: 'Complimentary Wi-Fi' },
-      { icon: Droplets, label: '24 HR Hot & Cold Water' },
-    ],
-    images: [
-      'https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=1600',
-      'https://images.pexels.com/photos/262048/pexels-photo-262048.jpeg?auto=compress&cs=tinysrgb&w=1000',
+      { icon: BedDouble, label: 'Grand Royal Emperor Bed' },
+      { icon: Wind, label: 'Dual-Zone Air Conditioning' },
+      { icon: Wifi, label: 'High-Speed Premium Wi-Fi' },
+      { icon: Droplets, label: 'Heritage Bathtub & Rain Shower' },
+      { icon: Coffee, label: 'Complimentary Breakfast Included' },
+      { icon: Lock, label: 'Private Concierge & Tours' },
     ],
   },
 };
 
-export function RoomsSection() {
-  const [activeTab, setActiveTab] = useState('Heritage Rooms');
+const stayInclusions = [
+  'Comfortable Room Stay',
+  'Housekeeping',
+  'Basic Room Amenities',
+  'Wi-Fi (subject to availability)',
+  'Breakfast / Meal Plan as selected',
+  'Assistance for Jaisalmer Tours & Car Rental',
+];
 
+export function RoomsSection() {
+  const [activeTab, setActiveTab] = useState('Golden Heritage Room');
   const currentRoom = roomData[activeTab];
 
   return (
@@ -144,11 +101,8 @@ export function RoomsSection() {
       id="stay"
       className="relative overflow-hidden bg-[#F7F2E8] py-16 sm:py-20 lg:py-24"
     >
-      {/* =====================================================
-          SUBTLE FLORAL BACKGROUND
-          ===================================================== */}
-
-      <div className="pointer-events-none absolute inset-0 opacity-[0.045]">
+      {/* Background Pattern */}
+      <div className="pointer-events-none absolute inset-0 opacity-[0.04]">
         <svg
           className="h-full w-full"
           viewBox="0 0 500 500"
@@ -157,95 +111,45 @@ export function RoomsSection() {
         >
           <defs>
             <pattern
-              id="jmb-floral-pattern"
+              id="vasudha-floral-pattern"
               width="150"
               height="150"
               patternUnits="userSpaceOnUse"
             >
               <path
-                d="M75 20
-                   C62 42 40 48 24 48
-                   C42 59 50 75 50 94
-                   C64 83 75 69 75 52
-                   C75 69 86 83 100 94
-                   C100 75 108 59 126 48
-                   C110 48 88 42 75 20Z"
+                d="M75 20 C62 42 40 48 24 48 C42 59 50 75 50 94 C64 83 75 69 75 52 C75 69 86 83 100 94 C100 75 108 59 126 48 C110 48 88 42 75 20Z"
                 fill="none"
                 stroke="#8A6A3E"
                 strokeWidth="1"
               />
-
-              <circle
-                cx="75"
-                cy="105"
-                r="14"
-                fill="none"
-                stroke="#8A6A3E"
-                strokeWidth="0.8"
-              />
-
-              <path
-                d="M75 119 C62 130 51 133 39 132"
-                fill="none"
-                stroke="#8A6A3E"
-                strokeWidth="0.8"
-              />
-
-              <path
-                d="M75 119 C88 130 99 133 111 132"
-                fill="none"
-                stroke="#8A6A3E"
-                strokeWidth="0.8"
-              />
+              <circle cx="75" cy="105" r="14" fill="none" stroke="#8A6A3E" strokeWidth="0.8" />
             </pattern>
           </defs>
-
-          <rect
-            width="100%"
-            height="100%"
-            fill="url(#jmb-floral-pattern)"
-          />
+          <rect width="100%" height="100%" fill="url(#vasudha-floral-pattern)" />
         </svg>
       </div>
 
-      {/* Soft background light */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[550px] w-[550px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/40 blur-3xl" />
-
       <div className="relative z-10 mx-auto w-[92%] max-w-[1380px]">
 
-        {/* =====================================================
-            SECTION HEADER
-            ===================================================== */}
-
+        {/* Section Header */}
         <div className="mx-auto mb-8 max-w-3xl text-center sm:mb-10">
-
           <span className="mb-3 block font-sans text-[10px] font-semibold uppercase tracking-[0.3em] text-[#C99A5B]">
-            STAY AT JMB
+            HOTEL VASUDHA HERITAGE · HOTEL STAY
           </span>
-
           <h2 className="font-serif text-[36px] font-normal leading-[1.1] tracking-[-0.01em] text-[#241C17] sm:text-[44px] md:text-[50px]">
-            Rooms &amp; Suites
+            Choose Your Preferred Stay Experience
           </h2>
-
           <p className="mx-auto mt-3 max-w-xl font-sans text-[13px] font-light leading-[1.75] text-[#666]">
-            Thoughtfully designed spaces for a comfortable stay in Jaisalmer.
+            Comfortable room stays, royal ambiance, and authentic Rajasthani hospitality in the heart of Jaisalmer.
           </p>
-
         </div>
 
-        {/* =====================================================
-            ROOM CATEGORY NAVIGATION
-            ===================================================== */}
-
+        {/* Navigation Tabs */}
         <div className="mb-10 border-y border-[#C99A5B]/20 sm:mb-12">
-
           <div className="scrollbar-hide flex w-full overflow-x-auto md:justify-center">
-
             <div className="flex min-w-max items-center">
-
               {categories.map((category) => {
                 const isActive = activeTab === category;
-
                 return (
                   <button
                     key={category}
@@ -267,13 +171,12 @@ export function RoomsSection() {
                       sm:text-[10px]
                       ${
                         isActive
-                          ? 'text-[#241C17]'
+                          ? 'text-[#241C17] font-semibold'
                           : 'text-[#777] hover:text-[#241C17]'
                       }
                     `}
                   >
                     {category}
-
                     <span
                       className={`
                         absolute
@@ -294,86 +197,55 @@ export function RoomsSection() {
                   </button>
                 );
               })}
-
             </div>
-
           </div>
-
         </div>
 
-        {/* =====================================================
-            ROOM IMAGE
-            ===================================================== */}
-
+        {/* Room Image Box with "Coming Soon" */}
         <div className="relative">
-
           <div
             key={activeTab}
             className="
               group
               relative
-              h-[390px]
+              h-[360px]
               w-full
               overflow-hidden
-              bg-[#DDD]
+              rounded-2xl
+              bg-[#241C17]
               shadow-[0_20px_60px_rgba(36,29,23,0.13)]
-              sm:h-[465px]
-              md:h-[535px]
-              lg:h-[560px]
+              sm:h-[430px]
+              md:h-[490px]
+              lg:h-[520px]
+              flex
+              items-center
+              justify-center
             "
           >
-
-            <img
-              src={currentRoom.images[0]}
-              alt={`${currentRoom.title} at JMB Jaisalmer`}
-              className="
-                h-full
-                w-full
-                object-cover
-                object-center
-                transition-transform
-                duration-[1200ms]
-                ease-out
-                group-hover:scale-[1.025]
-              "
-            />
-
-            <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-transparent to-black/5" />
-
-            {/* Image Label */}
-            <div className="absolute left-5 top-5 sm:left-7 sm:top-7">
-
-              <span className="
-                border
-                border-white/50
-                bg-black/10
-                px-3
-                py-2
-                font-sans
-                text-[8px]
-                font-medium
-                uppercase
-                tracking-[0.25em]
-                text-white
-                backdrop-blur-[2px]
-              ">
-                JMB JAISALMER
-              </span>
-
+            {/* Ambient luxury texture backdrop */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#1E1712] via-[#2D211A] to-[#3B2C22] opacity-95" />
+            
+            {/* Fine decorative architectural arch outline */}
+            <div className="absolute inset-4 sm:inset-8 border border-[#C99A5B]/25 rounded-xl pointer-events-none flex items-center justify-center">
+              <div className="w-[85%] h-[85%] border border-[#C99A5B]/15 rounded-lg" />
             </div>
 
+            {/* COMING SOON - Clean text only */}
+            <div className="relative z-10 text-center px-6">
+              <span className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#E2BA7E] font-normal tracking-[0.28em] uppercase drop-shadow-md">
+                COMING SOON
+              </span>
+            </div>
           </div>
 
-          {/* =================================================
-              OVERLAPPING ROOM INFORMATION
-              ================================================= */}
-
+          {/* Overlapping Room Information Box */}
           <div
             className="
               relative
               mx-4
               -mt-12
               bg-white
+              rounded-xl
               px-6
               py-7
               shadow-[0_18px_50px_rgba(36,29,23,0.11)]
@@ -391,18 +263,18 @@ export function RoomsSection() {
               lg:px-12
             "
           >
-
             <div className="grid grid-cols-1 gap-7 md:grid-cols-[1.15fr_0.85fr] md:gap-10">
 
-              {/* =================================================
-                  LEFT CONTENT
-                  ================================================= */}
-
+              {/* Left Content */}
               <div>
-
-                <span className="mb-2.5 block font-sans text-[9px] font-semibold uppercase tracking-[0.25em] text-[#C99A5B]">
-                  ACCOMMODATION
-                </span>
+                <div className="flex items-center gap-3 mb-2">
+                  <span className="font-sans text-[9px] font-semibold uppercase tracking-[0.25em] text-[#C99A5B]">
+                    ROOM CATEGORY
+                  </span>
+                  <span className="text-[14px] font-bold text-[#241C17] font-sans">
+                    {currentRoom.price}
+                  </span>
+                </div>
 
                 <h3 className="font-serif text-[28px] font-normal leading-[1.12] text-[#241C17] sm:text-[32px]">
                   {currentRoom.title}
@@ -416,97 +288,103 @@ export function RoomsSection() {
                   {currentRoom.description1}
                 </p>
 
-                <a
-                  href="/hotel"
-                  className="
-                    group
-                    mt-5
-                    inline-flex
-                    items-center
-                    gap-2
-                    border-b
-                    border-[#C99A5B]
-                    pb-1.5
-                    font-sans
-                    text-[10px]
-                    font-semibold
-                    uppercase
-                    tracking-[0.22em]
-                    text-[#241C17]
-                    transition-colors
-                    duration-300
-                    hover:text-[#C99A5B]
-                  "
-                >
-                  DISCOVER ROOM
-
-                  <ArrowUpRight
-                    size={13}
-                    strokeWidth={1.5}
+                <div className="mt-6 flex flex-wrap items-center gap-4">
+                  <a
+                    href={`https://wa.me/917734862004?text=Hello%20Hotel%20Vasudha%20Heritage%2C%20I%20would%20like%20to%20book%20the%20${encodeURIComponent(
+                      currentRoom.title
+                    )}%20(${encodeURIComponent(currentRoom.price)}).`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="
-                      transition-transform
+                      inline-flex
+                      items-center
+                      gap-2
+                      bg-[#241C17]
+                      hover:bg-[#C99A5B]
+                      text-white
+                      px-5
+                      py-2.5
+                      rounded-lg
+                      font-sans
+                      text-[10px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.2em]
+                      transition-colors
                       duration-300
-                      group-hover:translate-x-0.5
-                      group-hover:-translate-y-0.5
                     "
-                  />
-                </a>
+                  >
+                    BOOK THIS ROOM
+                    <ArrowUpRight size={13} strokeWidth={1.5} />
+                  </a>
 
+                  <a
+                    href="/hotel"
+                    className="
+                      font-sans
+                      text-[10px]
+                      font-semibold
+                      uppercase
+                      tracking-[0.2em]
+                      text-[#777]
+                      hover:text-[#241C17]
+                      transition-colors
+                    "
+                  >
+                    VIEW ALL ROOM DETAILS &rarr;
+                  </a>
+                </div>
               </div>
 
-              {/* =================================================
-                  RIGHT AMENITIES
-                  ================================================= */}
-
+              {/* Right Amenities & Hotel Inclusions */}
               <div className="md:border-l md:border-[#241C17]/10 md:pl-9">
-
                 <span className="mb-4 block font-sans text-[9px] font-semibold uppercase tracking-[0.25em] text-[#C99A5B]">
                   ROOM AMENITIES
                 </span>
 
-                <div className="grid grid-cols-2 gap-x-5 gap-y-4">
-
-                  {currentRoom.amenities.map(
-                    (amenity: any, index: number) => {
-                      const Icon = amenity.icon;
-
-                      return (
-                        <div
-                          key={`${amenity.label}-${index}`}
-                          className="flex items-start gap-2.5"
-                        >
-
-                          <Icon
-                            size={15}
-                            strokeWidth={1.25}
-                            className="mt-[1px] shrink-0 text-[#C99A5B]"
-                          />
-
-                          <span className="font-sans text-[10px] leading-[1.45] text-[#555]">
-                            {amenity.label}
-                          </span>
-
-                        </div>
-                      );
-                    }
-                  )}
-
+                <div className="grid grid-cols-2 gap-x-5 gap-y-3.5 mb-6">
+                  {currentRoom.amenities.map((amenity: any, index: number) => {
+                    const Icon = amenity.icon;
+                    return (
+                      <div
+                        key={`${amenity.label}-${index}`}
+                        className="flex items-start gap-2.5"
+                      >
+                        <Icon
+                          size={15}
+                          strokeWidth={1.25}
+                          className="mt-[1px] shrink-0 text-[#C99A5B]"
+                        />
+                        <span className="font-sans text-[10.5px] leading-[1.45] text-[#555]">
+                          {amenity.label}
+                        </span>
+                      </div>
+                    );
+                  })}
                 </div>
 
+                {/* Hotel Stay Inclusions */}
+                <div className="border-t border-gray-100 pt-4">
+                  <span className="block font-sans text-[8.5px] font-bold uppercase tracking-[0.2em] text-[#8A6A4A] mb-2.5">
+                    HOTEL STAY INCLUDES
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {stayInclusions.map((inc, i) => (
+                      <div key={i} className="flex items-center gap-1.5 text-[10px] text-gray-600 font-sans">
+                        <CheckCircle2 size={12} className="text-[#C99A5B] shrink-0" />
+                        <span>{inc}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
 
             </div>
-
           </div>
-
         </div>
 
-        {/* =====================================================
-            ALL ACCOMMODATION CTA
-            ===================================================== */}
-
-        <div className="mt-8 flex justify-center sm:mt-9">
-
+        {/* View All CTA */}
+        <div className="mt-10 flex justify-center">
           <a
             href="/hotel"
             className="
@@ -525,11 +403,9 @@ export function RoomsSection() {
               hover:text-[#C99A5B]
             "
           >
-            VIEW ALL ACCOMMODATION
-
+            EXPLORE ALL 4 CATEGORIES &amp; PRICING
             <span className="h-px w-8 bg-[#C99A5B] transition-all duration-300 group-hover:w-12" />
           </a>
-
         </div>
 
       </div>

@@ -1,13 +1,13 @@
-import logo from '../../assets/logo.png';
+import logo from '../../assets/logo-hvh.png';
 
 export function Footer() {
-  const whatsappNumber = '+91 96672 22879';
+  const whatsappNumber = '+91 77348 62004';
 
   const whatsappUrl =
-    'https://wa.me/919667222879?text=Hello,%20I%20want%20to%20enquire%20about%20JMB%20Jaisalmer.';
+    'https://wa.me/917734862004?text=Hello,%20I%20want%20to%20enquire%20about%20Hotel%20Vasudha%20Heritage%20Jaisalmer.';
 
   const mapQuery =
-    'JMB Jaisalmer, Near Golden Fort & Sam Highway, Jaisalmer, Rajasthan 345001, India';
+    'A-154, Laxmi Chand Sanwal Colony, District court Road, Jaisalmer, Rajasthan – 345001';
 
   const googleMapsUrl =
     'https://www.google.com/maps/search/?api=1&query=' +
@@ -59,7 +59,7 @@ export function Footer() {
             <div className="mb-5">
               <img
                 src={logo}
-                alt="JMB Jaisalmer"
+                alt="Hotel Vasudha Heritage"
                 className="
                   h-10
                   w-auto
@@ -269,7 +269,7 @@ export function Footer() {
                 </span>
 
                 <a
-                  href="mailto:contact@jmbjaisalmer.com"
+                  href="mailto:hotelvasudhaheritage@gmail.com"
                   className="
                     font-sans
                     text-[13px]
@@ -279,7 +279,7 @@ export function Footer() {
                     hover:text-[#C99A5B]
                   "
                 >
-                  contact@jmbjaisalmer.com
+                  hotelvasudhaheritage@gmail.com
                 </a>
 
               </div>
@@ -313,8 +313,8 @@ export function Footer() {
                     text-[#241C17]/70
                   "
                 >
-                  JMB Jaisalmer, Near Golden Fort & Sam Highway,
-                  Jaisalmer, Rajasthan 345001, India
+                  A-154, Laxmi Chand Sanwal Colony, District court Road,
+                  Jaisalmer, Rajasthan – 345001
                 </p>
 
               </div>
@@ -372,7 +372,7 @@ export function Footer() {
                   sm:text-[32px]
                 "
               >
-                Find JMB in Jaisalmer
+                Find Hotel Vasudha Heritage in Jaisalmer
               </h3>
 
             </div>
@@ -439,7 +439,7 @@ export function Footer() {
           >
 
             <iframe
-              title="JMB Jaisalmer Location Map"
+              title="Hotel Vasudha Heritage Location Map"
               src={mapEmbedUrl}
               width="100%"
               height="100%"
@@ -481,7 +481,7 @@ export function Footer() {
                   text-[#C99A5B]
                 "
               >
-                JMB JAISALMER
+                HOTEL VASUDHA HERITAGE
               </span>
 
               <span
@@ -531,7 +531,7 @@ export function Footer() {
               text-[#241C17]/45
             "
           >
-            © JMB Jaisalmer. All Rights Reserved.
+            © Hotel Vasudha Heritage. All Rights Reserved.
           </p>
 
           <p

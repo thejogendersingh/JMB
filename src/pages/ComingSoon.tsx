@@ -7,7 +7,7 @@ interface ComingSoonProps {
 }
 
 export function ComingSoon({ title, subtitle }: ComingSoonProps) {
-  const whatsappLink = `https://wa.me/919667222879?text=Hello,%20I%20want%20to%20enquire%20about%20${encodeURIComponent(title)}.`;
+  const whatsappLink = `https://wa.me/917734862004?text=Hello,%20I%20want%20to%20enquire%20about%20${encodeURIComponent(title)}.`;
 
   return (
     <div className="min-h-[80vh] bg-[#fcfbf9] flex flex-col items-center justify-center relative px-6 text-center pt-24">

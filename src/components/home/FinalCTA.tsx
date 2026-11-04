@@ -30,7 +30,7 @@ const services = [
 
 export function FinalCTA() {
   const whatsappLink =
-    'https://wa.me/919667222879?text=Hello,%20I%20would%20like%20to%20plan%20my%20complete%20Jaisalmer%20trip%20(Stay%20+%20Tours%20+%20Car%20Rental).';
+    'https://wa.me/917734862004?text=Hello,%20I%20would%20like%20to%20plan%20my%20complete%20Jaisalmer%20trip%20(Stay%20+%20Tours%20+%20Car%20Rental).';
 
   return (
     <section
@@ -162,7 +162,7 @@ export function FinalCTA() {
           "
         >
           Everything you need for a seamless Jaisalmer experience,
-          thoughtfully brought together by JMB.
+          thoughtfully brought together by Hotel Vasudha Heritage.
         </p>
 
         {/* =====================================================

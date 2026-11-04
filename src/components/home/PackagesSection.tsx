@@ -1,52 +1,84 @@
+import { useState } from 'react';
 import { MessageCircle, Check, ArrowRight } from 'lucide-react';
+import packageEssentialImg from '../../assets/essentail-packge.jpg';
+import packagePremiumImg from '../../assets/places/package-premium.jpg';
+import packageLuxuryImg from '../../assets/places/package-luxury.jpg';
+
+const categories = ['ALL', 'BASIC', 'PREMIUM', 'LUXURY'];
 
 const packages = [
   {
+    category: 'BASIC',
     number: '01',
-    tag: '2 NIGHTS · DESERT + CITY CHARM',
-    title: 'Bronze Escape',
-    price: '₹80,000',
-    priceNote: '+ Taxes · Per Couple',
-    highlight: 'Ideal for Romantic Getaways',
+    tag: 'BASIC · BUDGET-FRIENDLY TOUR',
+    title: 'Vasudha Essential Jaisalmer Package',
+    price: '₹3,999/-',
+    priceNote: 'Per Person · Essential Inclusions',
+    highlight: 'Ideal for Solo, Couples & Budget Travellers',
     inclusions: [
-      'Dune Safari Experience',
-      '2 Nights at JMB Hotel',
-      'Daily Breakfast Included',
-      'Kids below 5 yrs — Complimentary',
+      'Hotel / Desert Camp Stay',
+      'Basic City Sightseeing',
+      'Daily Breakfast & Dinner',
+      'Pickup & Drop (Railway Station / Hotel)',
+      'Selected Desert Activities & Sunset',
+      'Assistance for Jaisalmer Tours & Desert Safari',
     ],
-    images: [
-      'https://images.pexels.com/photos/33726139/pexels-photo-33726139.jpeg?auto=compress&cs=tinysrgb&w=900',
-      'https://images.pexels.com/photos/4005834/pexels-photo-4005834.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.unsplash.com/photo-1473580044384-7ba9967e16a0?q=80&w=600&auto=format&fit=crop',
-    ],
-    wa: 'https://wa.me/919667222879?text=Hello%2C%20I%20am%20interested%20in%20the%20Bronze%20Escape%20Package.',
+    images: [packageEssentialImg],
+    wa: 'https://wa.me/917734862004?text=Hello%20Hotel%20Vasudha%20Heritage%2C%20I%20am%20interested%20in%20the%20Vasudha%20Essential%20Jaisalmer%20Package%20(Basic%20-%20%E2%82%B93%2C999).',
   },
   {
+    category: 'PREMIUM',
     number: '02',
-    tag: '3 NIGHTS · ROYAL + DESERT RETREAT',
-    title: 'Gold Escape + Camp Stay',
-    price: '₹1,40,000',
-    priceNote: '+ Taxes · Per Couple',
-    highlight: 'Most Popular · Best Value',
+    tag: 'PREMIUM · MID-RANGE EXPERIENCE',
+    title: 'Vasudha Premium Jaisalmer Experience',
+    price: '₹7,499/-',
+    priceNote: 'Per Person · Hotel + Desert + Car',
+    highlight: 'Most Popular · Best Balance of Comfort & Adventure',
     inclusions: [
-      '2 Nights at JMB Luxury Hotel',
-      '1 Night at Luxury Desert Camp',
-      'Full Desert Safari & Dune Dinner',
-      'Kids below 5 yrs — Complimentary',
+      'Hotel Stay + Sam Desert Camp Stay',
+      'Full Jaisalmer City Tour & Kuldhara Village',
+      'Camel Safari & Thrilling Jeep Safari',
+      'Rajasthani Folk Dance & Cultural Program',
+      'Breakfast & Rajasthani Dinner Included',
+      'Private Dedicated Car Included with Pickup & Drop',
     ],
-    images: [
-      'https://images.pexels.com/photos/9497622/pexels-photo-9497622.jpeg?auto=compress&cs=tinysrgb&w=900',
-      'https://images.pexels.com/photos/13142482/pexels-photo-13142482.jpeg?auto=compress&cs=tinysrgb&w=600',
-      'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=600&auto=format&fit=crop',
-    ],
-    wa: 'https://wa.me/919667222879?text=Hello%2C%20I%20am%20interested%20in%20the%20Gold%20Escape%20%2B%20Camp%20Stay%20Package.',
+    images: [packagePremiumImg],
+    wa: 'https://wa.me/917734862004?text=Hello%20Hotel%20Vasudha%20Heritage%2C%20I%20am%20interested%20in%20the%20Vasudha%20Premium%20Jaisalmer%20Experience%20(%E2%82%B97%2C499).',
     badge: 'POPULAR',
+  },
+  {
+    category: 'LUXURY',
+    number: '03',
+    tag: 'LUXURY · ROYAL VIP EXPERIENCE',
+    title: 'Vasudha Royal Jaisalmer Experience',
+    price: '₹12,999/-',
+    priceNote: 'Per Person · Complete VIP All-Inclusive',
+    highlight: 'Ultimate Jaisalmer, Desert & IndoPak Border Circuit',
+    inclusions: [
+      'Premium Hotel Stay & Luxury Desert Camp',
+      'Complete City Sightseeing (Fort, Patwon Haveli, Gadisar)',
+      'Tanot Mata Temple & Longewala War Border Tour',
+      'Kuldhara Haunted Village & Desert Photo Stops',
+      'Camel Safari, Jeep Safari, Sunset & Kalbelia Dance',
+      'Private AC Car Throughout + Airport / Station Transfers',
+    ],
+    images: [packageLuxuryImg],
+    wa: 'https://wa.me/917734862004?text=Hello%20Hotel%20Vasudha%20Heritage%2C%20I%20am%20interested%20in%20the%20Vasudha%20Royal%20Jaisalmer%20Experience%20(Luxury%20-%20%E2%82%B912%2C999).',
+    badge: 'ROYAL VIP',
   },
 ];
 
 export function PackagesSection() {
+  const [selectedCat, setSelectedCat] = useState('ALL');
+
+  const filteredPackages =
+    selectedCat === 'ALL'
+      ? packages
+      : packages.filter((p) => p.category === selectedCat);
+
   return (
     <section
+      id="tours"
       className="
         relative
         overflow-hidden
@@ -60,9 +92,7 @@ export function PackagesSection() {
         md:pb-20
       "
     >
-      {/* =========================================================
-          SUBTLE HERITAGE PATTERN
-          ========================================================= */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 pointer-events-none opacity-[0.025]">
         <svg
           className="w-full h-full"
@@ -72,14 +102,8 @@ export function PackagesSection() {
         >
           <circle cx="400" cy="400" r="260" stroke="#C99A5B" />
           <circle cx="400" cy="400" r="205" stroke="#C99A5B" />
-
           <path
             d="M400 140C430 210 490 270 560 300C490 330 430 390 400 460C370 390 310 330 240 300C310 270 370 210 400 140Z"
-            stroke="#C99A5B"
-          />
-
-          <path
-            d="M140 400C210 370 270 310 300 240C330 310 390 370 460 400C390 430 330 490 300 560C270 490 210 430 140 400Z"
             stroke="#C99A5B"
           />
         </svg>
@@ -95,27 +119,14 @@ export function PackagesSection() {
           mx-auto
         "
       >
-        {/* =======================================================
-            SECTION HEADER
-            ======================================================= */}
-        <div
-          className="
-            text-center
-            mb-9
-            sm:mb-11
-            md:mb-13
-          "
-        >
-          {/* Small divider */}
-          <div className="flex items-center justify-center gap-3 mb-4">
+        {/* Header */}
+        <div className="text-center mb-8 sm:mb-10">
+          <div className="flex items-center justify-center gap-3 mb-3">
             <span className="w-8 sm:w-10 h-px bg-[#C99A5B]/50" />
-
             <span className="w-1.5 h-1.5 rounded-full bg-[#C99A5B]" />
-
             <span className="w-8 sm:w-10 h-px bg-[#C99A5B]/50" />
           </div>
 
-          {/* Label */}
           <span
             className="
               block
@@ -128,13 +139,12 @@ export function PackagesSection() {
               uppercase
               text-[#C99A5B]
               font-bold
-              mb-2.5
+              mb-2
             "
           >
-            SIGNATURE PACKAGES
+            HOTEL VASUDHA HERITAGE · PACKAGES
           </span>
 
-          {/* Heading */}
           <h2
             className="
               font-serif
@@ -147,17 +157,48 @@ export function PackagesSection() {
               leading-[1.15]
             "
           >
-            Curated Jaisalmer Journeys
+            Curated Jaisalmer Tour Packages
           </h2>
 
-          {/* No paragraph here */}
+          <p className="mt-2.5 font-sans text-[13px] text-[#766B62] max-w-xl mx-auto font-light">
+            Choose your preferred package category according to your budget and travel preferences.
+          </p>
+
+          {/* Category Pills: BASIC | PREMIUM | LUXURY */}
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mt-6">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCat(cat)}
+                className={`
+                  px-4
+                  py-1.5
+                  sm:px-5
+                  sm:py-2
+                  rounded-full
+                  font-sans
+                  text-[10px]
+                  sm:text-[11px]
+                  font-semibold
+                  tracking-widest
+                  transition-all
+                  duration-300
+                  ${
+                    selectedCat === cat
+                      ? 'bg-[#241C17] text-white shadow-sm'
+                      : 'bg-white/80 text-[#666] border border-[#E4D5BD] hover:border-[#C99A5B] hover:text-[#241C17]'
+                  }
+                `}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* =======================================================
-            PACKAGE CARDS
-            ======================================================= */}
+        {/* Package Cards */}
         <div className="flex flex-col gap-6 sm:gap-7">
-          {packages.map((pkg, i) => (
+          {filteredPackages.map((pkg, i) => (
             <article
               key={i}
               className="
@@ -165,565 +206,191 @@ export function PackagesSection() {
                 flex
                 flex-col
                 lg:flex-row
-
                 bg-white
-
                 overflow-hidden
-
                 border
                 border-[#E4D5BD]
-
-                rounded-[7px]
-
+                rounded-[10px]
+                lg:h-[310px]
                 transition-all
                 duration-500
-
-                hover:border-[#C99A5B]/60
-                hover:shadow-[0_15px_45px_rgba(73,51,29,0.08)]
+                hover:border-[#C99A5B]/80
+                hover:shadow-[0_16px_40px_rgba(36,28,23,0.08)]
               "
             >
-              {/* =================================================
-                  IMAGE AREA
-                  ================================================= */}
+              {/* Media Left - Fixed Horizontal Thumbnail matching all 3 boxes */}
               <div
                 className="
+                  relative
                   w-full
-                  lg:w-[43%]
+                  lg:w-[350px]
+                  xl:w-[380px]
+                  h-[220px]
+                  sm:h-[240px]
+                  lg:h-full
                   shrink-0
-
-                  p-2
-                  sm:p-2.5
-
-                  bg-[#FAF5EC]
+                  overflow-hidden
                 "
               >
-                <div
-                  className="
-                    flex
-                    gap-1.5
+                <img
+                  src={pkg.images[0]}
+                  alt={pkg.title}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
+                />
 
-                    h-[220px]
-                    sm:h-[250px]
-                    md:h-[280px]
-                    lg:h-full
-                    lg:min-h-[360px]
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10" />
 
-                    overflow-hidden
-                    rounded-[5px]
-                  "
-                >
-                  {/* Main Image */}
-                  <div
-                    className="
-                      relative
-                      flex-[2]
-                      overflow-hidden
-
-                      rounded-[4px]
-
-                      border
-                      border-white
-                    "
-                  >
-                    <img
-                      src={pkg.images[0]}
-                      alt={pkg.title}
-                      className="
-                        w-full
-                        h-full
-                        object-cover
-
-                        transition-transform
-                        duration-700
-                        group-hover:scale-[1.04]
-                      "
-                    />
-
-                    {/* Image overlay */}
-                    <div
-                      className="
-                        absolute
-                        inset-0
-                        bg-gradient-to-t
-                        from-black/40
-                        via-transparent
-                        to-transparent
-                      "
-                    />
-
-                    {/* Package number */}
-                    <span
-                      className="
-                        absolute
-                        top-3
-                        left-3
-                        sm:top-4
-                        sm:left-4
-
-                        font-serif
-                        text-4xl
-                        sm:text-5xl
-
-                        text-white/35
-                        font-normal
-                        leading-none
-                        select-none
-                      "
-                    >
-                      {pkg.number}
-                    </span>
-
-                    {/* Package tag */}
-                    <span
-                      className="
-                        absolute
-                        bottom-3
-                        left-3
-                        sm:bottom-4
-                        sm:left-4
-
-                        bg-white/90
-
-                        text-[#241C17]
-
-                        font-sans
-                        text-[7px]
-                        sm:text-[8px]
-
-                        font-bold
-                        tracking-[0.14em]
-
-                        uppercase
-
-                        px-2.5
-                        py-1.5
-                        sm:px-3
-                        sm:py-2
-
-                        rounded-[2px]
-                      "
-                    >
-                      {pkg.tag}
-                    </span>
-
-                    {/* Popular */}
-                    {pkg.badge && (
-                      <span
-                        className="
-                          absolute
-                          top-3
-                          right-3
-                          sm:top-4
-                          sm:right-4
-
-                          bg-[#C99A5B]
-
-                          text-white
-
-                          font-sans
-                          text-[7px]
-                          sm:text-[8px]
-
-                          font-bold
-                          tracking-[0.14em]
-
-                          uppercase
-
-                          px-2.5
-                          py-1.5
-                          sm:px-3
-                          sm:py-2
-
-                          rounded-[2px]
-                        "
-                      >
-                        {pkg.badge}
-                      </span>
-                    )}
-                  </div>
-
-                  {/* Two Small Images */}
-                  <div
-                    className="
-                      flex-[1]
-                      flex
-                      flex-col
-                      gap-1.5
-                      min-w-0
-                    "
-                  >
-                    <div
-                      className="
-                        flex-1
-                        relative
-                        overflow-hidden
-
-                        rounded-[4px]
-
-                        border
-                        border-white
-                      "
-                    >
-                      <img
-                        src={pkg.images[1]}
-                        alt={`${pkg.title} 2`}
-                        className="
-                          w-full
-                          h-full
-                          object-cover
-
-                          transition-transform
-                          duration-700
-
-                          group-hover:scale-[1.04]
-                        "
-                      />
-                    </div>
-
-                    <div
-                      className="
-                        flex-1
-                        relative
-                        overflow-hidden
-
-                        rounded-[4px]
-
-                        border
-                        border-white
-                      "
-                    >
-                      <img
-                        src={pkg.images[2]}
-                        alt={`${pkg.title} 3`}
-                        className="
-                          w-full
-                          h-full
-                          object-cover
-
-                          transition-transform
-                          duration-700
-
-                          group-hover:scale-[1.04]
-                        "
-                      />
-                    </div>
-                  </div>
+                <div className="absolute top-4 left-4 flex items-center gap-2">
+                  <span className="font-serif text-[12px] font-medium text-white/90 bg-black/40 backdrop-blur-[2px] px-2.5 py-1 rounded">
+                    {pkg.number}
+                  </span>
+                  <span className="font-sans text-[9px] font-bold tracking-widest text-[#E2BA7E] bg-[#241C17]/80 backdrop-blur-[2px] px-2.5 py-1 rounded uppercase">
+                    {pkg.category}
+                  </span>
                 </div>
+
+                {pkg.badge && (
+                  <div className="absolute top-4 right-4">
+                    <span className="bg-[#C99A5B] text-white font-sans text-[8.5px] font-bold tracking-[0.2em] uppercase px-3 py-1 rounded shadow-sm">
+                      {pkg.badge}
+                    </span>
+                  </div>
+                )}
               </div>
 
-              {/* =================================================
-                  CONTENT AREA
-                  ================================================= */}
+              {/* Content Right */}
               <div
                 className="
                   flex
                   flex-col
-                  flex-grow
-
+                  justify-between
                   p-5
-                  sm:p-7
-                  md:p-8
-                  lg:p-9
+                  sm:p-6
+                  lg:py-5
+                  lg:px-7
+                  grow
+                  overflow-hidden
                 "
               >
-                {/* =================================================
-                    TITLE + PRICE
-                    ================================================= */}
-                <div
-                  className="
-                    flex
-                    flex-col
-                    sm:flex-row
-                    sm:items-start
-                    sm:justify-between
+                <div>
+                  <span className="block font-sans text-[9px] sm:text-[9.5px] font-bold uppercase tracking-[0.22em] text-[#C99A5B] mb-1">
+                    {pkg.tag}
+                  </span>
 
-                    gap-4
-                    sm:gap-5
-
-                    mb-5
-                  "
-                >
-                  <div className="min-w-0">
-                    <span
-                      className="
-                        font-sans
-                        text-[8px]
-                        sm:text-[9px]
-
-                        tracking-[0.23em]
-                        uppercase
-
-                        text-[#A98252]
-                        font-bold
-
-                        block
-                        mb-1.5
-                      "
-                    >
-                      PACKAGE {pkg.number}
-                    </span>
-
-                    <h3
-                      className="
-                        font-serif
-                        text-[25px]
-                        sm:text-[29px]
-                        md:text-[31px]
-
-                        text-[#241C17]
-
-                        font-normal
-                        leading-[1.15]
-                      "
-                    >
+                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 mb-2">
+                    <h3 className="font-serif text-[24px] sm:text-[28px] text-[#241C17] font-normal leading-tight">
                       {pkg.title}
                     </h3>
-
-                    <span
-                      className="
-                        font-sans
-                        text-[9px]
-                        sm:text-[10px]
-
-                        text-[#A98252]
-
-                        font-semibold
-                        uppercase
-                        tracking-[0.10em]
-
-                        mt-2
-                        block
-                      "
-                    >
-                      {pkg.highlight}
-                    </span>
-                  </div>
-
-                  {/* Price */}
-                  <div
-                    className="
-                      text-left
-                      sm:text-right
-                      shrink-0
-                    "
-                  >
-                    <span
-                      className="
-                        font-serif
-                        text-[28px]
-                        sm:text-[32px]
-
-                        text-[#241C17]
-
-                        font-normal
-                        leading-none
-                        block
-                      "
-                    >
-                      {pkg.price}
-                    </span>
-
-                    <span
-                      className="
-                        font-sans
-                        text-[9px]
-                        sm:text-[10px]
-
-                        text-[#999]
-
-                        font-light
-
-                        mt-1
-                        block
-                      "
-                    >
-                      {pkg.priceNote}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Divider */}
-                <div
-                  className="
-                    w-full
-                    h-px
-                    bg-[#E8D9BE]
-                    mb-5
-                  "
-                />
-
-                {/* =================================================
-                    INCLUSIONS
-                    ================================================= */}
-                <div
-                  className="
-                    grid
-                    grid-cols-1
-                    sm:grid-cols-2
-
-                    gap-x-6
-                    gap-y-3
-
-                    mb-6
-                    sm:mb-7
-                  "
-                >
-                  {pkg.inclusions.map((item, j) => (
-                    <div
-                      key={j}
-                      className="
-                        flex
-                        items-start
-                        gap-2.5
-                      "
-                    >
-                      <span
-                        className="
-                          w-5
-                          h-5
-
-                          border
-                          border-[#C99A5B]/40
-
-                          flex
-                          items-center
-                          justify-center
-
-                          shrink-0
-                          mt-[1px]
-
-                          rounded-[2px]
-                        "
-                      >
-                        <Check
-                          size={11}
-                          className="text-[#C99A5B]"
-                          strokeWidth={2.5}
-                        />
+                    <div className="shrink-0">
+                      <span className="font-sans text-[20px] sm:text-[22px] font-bold text-[#C99A5B]">
+                        {pkg.price}
                       </span>
-
-                      <span
-                        className="
-                          font-sans
-                          text-[11.5px]
-                          sm:text-[12.5px]
-
-                          text-[#5F554D]
-
-                          leading-[1.55]
-                        "
-                      >
-                        {item}
+                      <span className="block font-sans text-[10px] text-gray-500 font-light">
+                        {pkg.priceNote}
                       </span>
                     </div>
-                  ))}
+                  </div>
+
+                  <p className="font-serif text-[13px] italic text-[#8A6A4A] mb-4">
+                    {pkg.highlight}
+                  </p>
+
+                  {/* Inclusions */}
+                  <div className="border-t border-gray-100 pt-4 mb-6">
+                    <span className="block font-sans text-[8.5px] font-bold tracking-[0.2em] uppercase text-gray-400 mb-2.5">
+                      PACKAGE INCLUDES
+                    </span>
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                      {pkg.inclusions.map((inc, idx) => (
+                        <li key={idx} className="flex items-start gap-2 text-[11px] text-[#555] font-sans">
+                          <Check size={13} className="text-[#C99A5B] shrink-0 mt-0.5" />
+                          <span>{inc}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
 
-                {/* =================================================
-                    CTA
-                    ================================================= */}
-                <div
-                  className="
-                    flex
-                    flex-wrap
-                    items-center
-
-                    gap-x-5
-                    gap-y-3
-
-                    pt-4
-                    sm:pt-5
-
-                    border-t
-                    border-[#E8D9BE]
-
-                    mt-auto
-                  "
-                >
+                {/* CTAs */}
+                <div className="flex items-center gap-4 pt-4 border-t border-gray-100">
                   <a
                     href={pkg.wa}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="
-                      flex
+                      inline-flex
                       items-center
                       gap-2
-
-                      text-[9px]
-                      sm:text-[10px]
-
+                      bg-[#241C17]
+                      hover:bg-[#C99A5B]
+                      text-white
+                      px-5
+                      py-2.5
+                      rounded-lg
                       font-sans
+                      text-[10px]
                       font-bold
-
-                      tracking-[0.14em]
+                      tracking-widest
                       uppercase
-
-                      text-[#241C17]
-
-                      hover:text-[#C99A5B]
-
-                      transition-colors
+                      transition-all
                       duration-300
-
-                      border-b
-                      border-[#C99A5B]
-
-                      pb-1.5
                     "
                   >
-                    <MessageCircle
-                      size={13}
-                      strokeWidth={1.8}
-                    />
-
-                    <span>Enquire on WhatsApp</span>
+                    <MessageCircle size={14} />
+                    <span>Book on WhatsApp</span>
                   </a>
 
-                  <span
-                    className="
-                      hidden
-                      sm:block
-                      text-[#D9CCBA]
-                    "
-                  >
-                    |
-                  </span>
-
                   <a
-                    href="#"
+                    href="/tour"
                     className="
-                      flex
+                      inline-flex
                       items-center
-                      gap-2
-
-                      text-[9px]
-                      sm:text-[10px]
-
+                      gap-1.5
                       font-sans
-                      font-medium
-
-                      tracking-[0.13em]
+                      text-[10px]
+                      font-semibold
+                      tracking-widest
                       uppercase
-
-                      text-[#8D837A]
-
-                      hover:text-[#C99A5B]
-
+                      text-[#8A6A4A]
+                      hover:text-[#241C17]
                       transition-colors
-                      duration-300
                     "
                   >
-                    <span>View Details</span>
-
-                    <ArrowRight
-                      size={12}
-                      strokeWidth={1.7}
-                    />
+                    <span>View Itinerary</span>
+                    <ArrowRight size={13} />
                   </a>
                 </div>
               </div>
             </article>
           ))}
+        </div>
+
+        {/* Bottom Tour Link */}
+        <div className="mt-10 text-center px-4">
+          <a
+            href="/tour"
+            className="
+              inline-flex
+              items-center
+              justify-center
+              gap-1.5 sm:gap-2
+              font-sans
+              text-[9px] min-[390px]:text-[10px] sm:text-[11px]
+              font-bold
+              tracking-[0.08em] min-[390px]:tracking-[0.12em] sm:tracking-[0.25em]
+              uppercase
+              whitespace-nowrap
+              text-[#241C17]
+              hover:text-[#C99A5B]
+              transition-colors
+              border-b
+              border-[#C99A5B]
+              pb-1
+            "
+          >
+            <span className="whitespace-nowrap">VIEW 1-NIGHT SAM DESERT &amp; 3-DAY COMPLETE PACKAGES</span>
+            <ArrowRight size={13} className="shrink-0" />
+          </a>
         </div>
       </div>
     </section>

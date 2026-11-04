@@ -1,18 +1,79 @@
 import { useState } from 'react';
-import { MessageCircle, Users, Wind, MapPin } from 'lucide-react';
-import carImg from '../../assets/car-rentel.png';
+import { MessageCircle, Users, Wind, MapPin, Gauge } from 'lucide-react';
+import tharImg from '../../assets/cars/thar-roxx.jpg';
+import scorpioImg from '../../assets/cars/scorpio-s11.jpg';
+import xuvImg from '../../assets/cars/xuv700.jpg';
+import swiftImg from '../../assets/cars/swift.jpg';
+import brezzaImg from '../../assets/cars/brezza.jpg';
+import ertigaImg from '../../assets/cars/ertiga.jpg';
 
 const vehicles = [
-  { id:  1, name: 'Comfort Sedan',    model: 'Swift Dzire / Toyota Etios',   seating: '4 Pax', climate: 'AC',              ideal: 'City rides & airport transfers',         image: carImg },
-  { id:  2, name: 'Premium Sedan',    model: 'Honda City / Ciaz',            seating: '4 Pax', climate: 'AC',              ideal: 'Business travel & pickups',              image: 'https://images.unsplash.com/photo-1609521263047-f8f205293f24?q=80&w=1000&auto=format&fit=crop' },
-  { id:  3, name: 'Hatchback',        model: 'Maruti WagonR / Alto',         seating: '4 Pax', climate: 'AC',              ideal: 'Budget city sightseeing',                image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?q=80&w=1000&auto=format&fit=crop' },
-  { id:  4, name: 'Innova Crysta',    model: 'Toyota Innova Crysta',         seating: '6–7 Pax', climate: 'Dual Zone AC', ideal: 'Family trips & Sam Dunes',               image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=1000&auto=format&fit=crop' },
-  { id:  5, name: 'Ertiga / Marazzo', model: 'Maruti Ertiga / Marazzo',      seating: '6–7 Pax', climate: 'AC',           ideal: 'Small group desert excursions',          image: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=1000&auto=format&fit=crop' },
-  { id:  6, name: 'Fortuner SUV',     model: 'Toyota Fortuner',              seating: '6–7 Pax', climate: 'Dual Zone AC', ideal: 'Luxury safari & Longewala trips',         image: 'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=1000&auto=format&fit=crop' },
-  { id:  7, name: 'Mahindra Thar',    model: 'Mahindra Thar 4×4',           seating: '4 Pax', climate: 'Open / AC',       ideal: 'Dune bashing & off-road',                image: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=1000&auto=format&fit=crop' },
-  { id:  8, name: 'Tempo 9-Seater',   model: 'Executive Tempo Traveller',    seating: '9 Pax', climate: 'Central AC',      ideal: 'Small group Rajasthan tours',            image: 'https://images.unsplash.com/photo-1570125909232-eb263c188f7e?q=80&w=1000&auto=format&fit=crop' },
-  { id:  9, name: 'Tempo 12-Seater',  model: 'Executive Tempo Traveller',    seating: '12 Pax', climate: 'Central AC',    ideal: 'Wedding guests & group travel',          image: 'https://images.unsplash.com/photo-1544620347-c4fd4a3d5957?q=80&w=1000&auto=format&fit=crop' },
-  { id: 10, name: 'Tempo 16-Seater',  model: 'Luxury Tempo Traveller',       seating: '16 Pax', climate: 'Central AC',    ideal: 'Large group & pilgrimage circuits',      image: 'https://images.unsplash.com/photo-1570125909517-53cb21c89ff2?q=80&w=1000&auto=format&fit=crop' },
+  {
+    id: 1,
+    name: 'Mahindra Thar Roxx',
+    model: 'Mahindra Thar Roxx 4×4',
+    price: '₹7,500/-',
+    kmLimit: '300 KM / 24 Hours',
+    seating: '4–5 Pax',
+    climate: 'Climate Control AC',
+    ideal: 'Sam Sand Dunes, Off-Road & Desert Safari',
+    image: tharImg,
+  },
+  {
+    id: 2,
+    name: 'Scorpio S11 – White',
+    model: 'Mahindra Scorpio S11 (White)',
+    price: '₹5,500/-',
+    kmLimit: '300 KM / 24 Hours',
+    seating: '7 Pax',
+    climate: 'Dual Zone AC',
+    ideal: 'Tanot – Longewala Border & Highway Cruising',
+    image: scorpioImg,
+  },
+  {
+    id: 3,
+    name: 'XUV 700',
+    model: 'Mahindra XUV 700 Premium',
+    price: '₹8,500/-',
+    kmLimit: '300 KM / 24 Hours',
+    seating: '6–7 Pax',
+    climate: 'Dual Zone AC',
+    ideal: 'Luxury Royal Travel & Complete Rajasthan Circuit',
+    image: xuvImg,
+  },
+  {
+    id: 4,
+    name: 'Swift',
+    model: 'Maruti Suzuki Swift',
+    price: '₹4,000/-',
+    kmLimit: '300 KM / 24 Hours',
+    seating: '4 Pax',
+    climate: 'Power AC',
+    ideal: 'Jaisalmer Local Sightseeing & City Transfers',
+    image: swiftImg,
+  },
+  {
+    id: 5,
+    name: 'Brezza',
+    model: 'Maruti Suzuki Brezza',
+    price: '₹4,000/-',
+    kmLimit: '300 KM / 24 Hours',
+    seating: '5 Pax',
+    climate: 'Automatic AC',
+    ideal: 'Kuldhara Village & Budget Desert Exploration',
+    image: brezzaImg,
+  },
+  {
+    id: 6,
+    name: 'Ertiga',
+    model: 'Maruti Suzuki Ertiga (7 Seater)',
+    price: '₹6,500/-',
+    kmLimit: '300 KM / 24 Hours',
+    seating: '7 Pax',
+    climate: 'Roof AC Vents',
+    ideal: 'Family Group Tours, Station & Airport Transfers',
+    image: ertigaImg,
+  },
 ];
 
 export function CarRental() {
@@ -26,14 +87,20 @@ export function CarRental() {
         {/* Header */}
         <div className="text-center mb-10">
           <span className="font-sans text-[11px] tracking-[0.3em] uppercase text-[#C99A5B] font-bold block mb-2">
-            CHAUFFEUR & FLEET
+            HOTEL VASUDHA HERITAGE · CAR RENTAL
           </span>
           <h2 className="font-serif text-3xl sm:text-4xl lg:text-[42px] text-[#241C17] font-normal">
-            Your Journey, Your Way
+            Cars Available on Rent
           </h2>
-          <p className="font-sans text-[13px] text-[#999] font-light mt-2 max-w-sm mx-auto">
-            Private chauffeur & vehicle rental across Rajasthan — city to desert.
+          <p className="font-sans text-[13px] text-[#777] font-light mt-2 max-w-xl mx-auto">
+            Explore Jaisalmer, Sam Sand Dunes, Tanot Mata, Longewala Border &amp; nearby destinations with our well-maintained private fleet.
           </p>
+          <div className="inline-flex items-center gap-2 mt-3 bg-[#FAF5EC] border border-[#C99A5B]/30 px-3.5 py-1 rounded-full">
+            <span className="w-2 h-2 rounded-full bg-[#C99A5B]" />
+            <span className="font-sans text-[11px] font-semibold tracking-wider text-[#8A6A4A] uppercase">
+              24 Hours Rental · Up to 300 KM Included
+            </span>
+          </div>
         </div>
 
         {/* Vehicle Tabs — horizontal scroll */}
@@ -57,18 +124,29 @@ export function CarRental() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
 
           {/* Image */}
-          <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-gray-100 shadow-sm">
+          <div className="relative rounded-2xl overflow-hidden aspect-[16/10] bg-gray-100 shadow-sm border border-gray-100">
             <img
               key={active}
               src={cur.image}
               alt={cur.name}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-transform duration-500 hover:scale-[1.02]"
             />
+            <div className="absolute top-4 left-4 bg-[#241C17]/85 backdrop-blur-[2px] text-white px-3 py-1 rounded-md text-[11px] font-semibold tracking-wider">
+              {cur.price} / 24 Hr
+            </div>
           </div>
 
           {/* Info */}
           <div className="flex flex-col gap-5">
             <div>
+              <div className="flex items-center gap-3 mb-1">
+                <span className="font-sans text-[18px] sm:text-[20px] font-bold text-[#C99A5B]">
+                  {cur.price}
+                </span>
+                <span className="text-[12px] text-gray-500 font-sans">
+                  / 24 Hours ({cur.kmLimit})
+                </span>
+              </div>
               <h3 className="font-serif text-[30px] sm:text-[36px] text-[#241C17] font-normal leading-tight">
                 {cur.name}
               </h3>
@@ -95,17 +173,32 @@ export function CarRental() {
               </div>
               <div>
                 <div className="flex items-center gap-1.5 mb-1">
-                  <MapPin size={12} className="text-[#C99A5B]" />
-                  <span className="font-sans text-[9px] uppercase tracking-wider text-gray-400">Best For</span>
+                  <Gauge size={12} className="text-[#C99A5B]" />
+                  <span className="font-sans text-[9px] uppercase tracking-wider text-gray-400">KM Limit</span>
                 </div>
-                <span className="font-sans text-[11px] text-gray-500 font-light leading-snug">{cur.ideal}</span>
+                <span className="font-sans text-[12px] text-[#241C17] font-semibold">300 KM</span>
               </div>
             </div>
 
-            {/* Trust pills */}
+            <div>
+              <div className="flex items-center gap-1.5 mb-1">
+                <MapPin size={12} className="text-[#C99A5B]" />
+                <span className="font-sans text-[9px] uppercase tracking-wider text-gray-400">Ideal For</span>
+              </div>
+              <span className="font-sans text-[12px] text-gray-600 font-light leading-snug">{cur.ideal}</span>
+            </div>
+
+            {/* Rental Highlights */}
             <div className="flex flex-wrap gap-2">
-              {['Verified Driver', 'Fixed Fare', 'Clean Vehicle', 'On-Time'].map((f) => (
-                <span key={f} className="font-sans text-[10.5px] text-gray-500 border border-gray-200 px-3 py-1.5 rounded-full">
+              {[
+                '24 Hours Rental',
+                '300 KM Included',
+                'Tanot–Longewala',
+                'Sam Desert Trips',
+                'Kuldhara Village',
+                'Pickup & Drop Available',
+              ].map((f) => (
+                <span key={f} className="font-sans text-[10.5px] text-gray-600 bg-gray-50 border border-gray-200 px-3 py-1 rounded-full">
                   {f}
                 </span>
               ))}
@@ -113,7 +206,9 @@ export function CarRental() {
 
             {/* CTA */}
             <a
-              href={`https://wa.me/919667222879?text=Hello%2C%20I%20want%20to%20book%20${encodeURIComponent(cur.name)}%20in%20Jaisalmer.`}
+              href={`https://wa.me/917734862004?text=Hello%20Hotel%20Vasudha%20Heritage%2C%20I%20want%20to%20book%20${encodeURIComponent(
+                cur.name
+              )}%20(${encodeURIComponent(cur.price)})%20for%20my%20Jaisalmer%20trip.`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-[#241C17] hover:bg-[#C99A5B] text-white px-7 py-3.5 rounded-xl text-[11px] font-sans font-bold tracking-widest uppercase transition-all duration-300 self-start"

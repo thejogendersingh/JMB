@@ -13,31 +13,31 @@ export function FloatingBooking() {
   const [isOpen, setIsOpen] = useState(false);
   const [isVisible, setIsVisible] = useState(false);
 
-  const waNumber = '919667222879';
+  const waNumber = '917734862004';
 
   const options = [
     {
       label: 'Hotel Booking',
       sub: 'Rooms & Suites',
       icon: Hotel,
-      msg: 'Hello JMB Jaisalmer, I am interested in booking a hotel room.',
+      msg: 'Hello Hotel Vasudha Heritage, I am interested in booking a hotel room.',
     },
     {
       label: 'Car Rental',
       sub: 'Travel in Rajasthan',
       icon: Car,
-      msg: 'Hello JMB Jaisalmer, I would like to inquire about Car Rental services.',
+      msg: 'Hello Hotel Vasudha Heritage, I would like to inquire about Car Rental services.',
     },
     {
       label: 'Jaisalmer Tours',
       sub: 'Packages & Experiences',
       icon: Map,
-      msg: 'Hello JMB Jaisalmer, I want to know more about your Jaisalmer Tours and Packages.',
+      msg: 'Hello Hotel Vasudha Heritage, I want to know more about your Jaisalmer Tours and Packages.',
     },
   ];
 
   const whatsappUrl = `https://wa.me/${waNumber}?text=${encodeURIComponent(
-    'Hello JMB Jaisalmer, I would like to plan my Jaisalmer trip.'
+    'Hello Hotel Vasudha Heritage, I would like to plan my Jaisalmer trip.'
   )}`;
 
   /* =========================================================
@@ -170,7 +170,7 @@ export function FloatingBooking() {
                     mb-2
                   "
                 >
-                  JMB JAISALMER
+                  HOTEL VASUDHA HERITAGE
                 </span>
 
                 <h3
