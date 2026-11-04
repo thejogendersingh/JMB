@@ -2,7 +2,7 @@ import { useRef, useState } from 'react';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
 
 const galleryImageModules = import.meta.glob<string>(
-  '../../assets/gallery/*.{jpeg,jpg,png}',
+  '../../assets/gallery/*.webp',
   { eager: true, import: 'default' }
 );
 const galleryImages = Object.values(galleryImageModules);

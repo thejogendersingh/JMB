@@ -1,20 +1,17 @@
 import { useEffect, useState } from 'react';
-import desertCampImg from '../../assets/desert-camp.png';
-import carFleetImg from '../../assets/places/car-fleet.png';
-import desertDunesImg from '../../assets/places/desert-park.jpg';
+import carFleetImg from '../../assets/places/car-fleet.webp';
+import badaBaghImg from '../../assets/places/bada-bagh.webp';
 
 const heroSlides = [
   {
-    image: desertCampImg,
-    tag: 'SAM DESERT RESORT & CAMP',
-  },
-  {
     image: carFleetImg,
-    tag: 'DESERT SAFARI & LUXURY FLEET',
+    tag: 'SAM DESERT EXPEDITIONS & LUXURY FLEET',
+    position: 'center 35%',
   },
   {
-    image: desertDunesImg,
-    tag: 'GOLDEN THAR DESERT DUNES',
+    image: badaBaghImg,
+    tag: 'ROYAL HERITAGE & SUNLIT CHHATRIS',
+    position: 'center 38%',
   },
 ];
 
@@ -122,52 +119,21 @@ export function Hero() {
             `}
             style={{
               backgroundImage: `url("${slide.image}")`,
-              backgroundPosition: 'center center',
+              backgroundPosition: slide.position || 'center center',
             }}
           />
         ))}
 
-        {/* Very light overall overlay */}
-        <div
-          className="
-            absolute
-            inset-0
-            bg-black/[0.15]
-            pointer-events-none
-          "
-        />
-
-        {/* Subtle top/bottom contrast */}
+        {/* Luminous sky-preserving contrast overlay: ensures bright sky-blue tones shine while maintaining text clarity */}
         <div
           className="
             absolute
             inset-0
             pointer-events-none
             bg-gradient-to-b
-            from-black/[0.25]
+            from-black/35
             via-transparent
-            to-black/[0.20]
-          "
-        />
-
-        {/* Very soft local contrast behind text */}
-        <div
-          className="
-            absolute
-            left-1/2
-            top-[48%]
-            -translate-x-1/2
-            -translate-y-1/2
-            w-[88%]
-            sm:w-[70%]
-            md:w-[600px]
-            lg:w-[700px]
-            h-[220px]
-            sm:h-[250px]
-            md:h-[280px]
-            bg-black/[0.08]
-            blur-3xl
-            pointer-events-none
+            to-black/30
           "
         />
       </div>

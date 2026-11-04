@@ -5,7 +5,7 @@ import {
   ArrowUpRight,
 } from 'lucide-react';
 
-import desertCampImg from '../../assets/desert-camp.png';
+import desertCampImg from '../../assets/desert-camp.webp';
 
 const services = [
   {

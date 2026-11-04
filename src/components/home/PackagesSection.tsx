@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { MessageCircle, Check, ArrowRight } from 'lucide-react';
-import packageEssentialImg from '../../assets/essentail-packge.jpg';
-import packagePremiumImg from '../../assets/places/package-premium.jpg';
-import packageLuxuryImg from '../../assets/places/package-luxury.jpg';
+import packageEssentialImg from '../../assets/package-essential.webp';
+import packagePremiumImg from '../../assets/places/package-premium.webp';
+import packageLuxuryImg from '../../assets/places/package-luxury.webp';
 
 const categories = ['ALL', 'BASIC', 'PREMIUM', 'LUXURY'];
 

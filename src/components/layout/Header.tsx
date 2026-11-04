@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
-import logo from '../../assets/logo-hvh.png';
-import logoWhite from '../../assets/logo-hvh-white.png';
+import logo from '../../assets/logo-hvh.webp';
+import logoWhite from '../../assets/logo-hvh-white.webp';
 
 const navLinks = [
   { name: 'STAY', href: '/hotel', hash: '#stay' },

@@ -1,4 +1,4 @@
-import hotelImg from '../../assets/hotel-img.png';
+import hotelImg from '../../assets/hotel-img.webp';
 import {
   ArrowRight,
   BedDouble,

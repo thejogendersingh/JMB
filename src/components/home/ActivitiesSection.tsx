@@ -15,21 +15,21 @@ import {
   Camera,
 } from 'lucide-react';
 
-import camelRideImg from '../../assets/places/camel-ride.jpg';
-import campStayImg from '../../assets/places/camp-stay.png';
-import dinnerDunesImg from '../../assets/places/dinner-dunes.jpg';
-import jeepSafariImg from '../../assets/places/jeep-safari.jpg';
-import gadisarLakeImg from '../../assets/places/gadisar-lake.jpg';
-import desertParkImg from '../../assets/places/desert-park.jpg';
-import warMuseumImg from '../../assets/places/war-museum.jpg';
-import havelisImg from '../../assets/places/havelis.jpg';
-import jainTempleImg from '../../assets/places/jain-temple.jpg';
-import villageTourImg from '../../assets/places/village-tour.jpg';
-import badaBaghImg from '../../assets/places/bada-bagh.jpg';
-import tanotMataImg from '../../assets/places/tanot-mata.jpg';
-import kuldharaImg from '../../assets/places/kuldhara.jpg';
-import jaisalmerFortImg from '../../assets/places/jaisalmer-fort.jpg';
-import sunsetPhotoImg from '../../assets/places/sunset-photo.jpg';
+import camelRideImg from '../../assets/places/camel-ride.webp';
+import campStayImg from '../../assets/places/camp-stay.webp';
+import dinnerDunesImg from '../../assets/places/dinner-dunes.webp';
+import jeepSafariImg from '../../assets/places/jeep-safari.webp';
+import gadisarLakeImg from '../../assets/places/gadisar-lake.webp';
+import desertParkImg from '../../assets/places/desert-park.webp';
+import warMuseumImg from '../../assets/places/war-museum.webp';
+import havelisImg from '../../assets/places/havelis.webp';
+import jainTempleImg from '../../assets/places/jain-temple.webp';
+import villageTourImg from '../../assets/places/village-tour.webp';
+import badaBaghImg from '../../assets/places/bada-bagh.webp';
+import tanotMataImg from '../../assets/places/tanot-mata.webp';
+import kuldharaImg from '../../assets/places/kuldhara.webp';
+import jaisalmerFortImg from '../../assets/places/jaisalmer-fort.webp';
+import sunsetPhotoImg from '../../assets/places/sunset-photo.webp';
 
 const activities = [
   {

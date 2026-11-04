@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { MessageCircle, Users, Wind, MapPin, Gauge } from 'lucide-react';
-import tharImg from '../../assets/cars/thar-roxx.jpg';
-import scorpioImg from '../../assets/cars/scorpio-s11.jpg';
-import xuvImg from '../../assets/cars/xuv700.jpg';
-import swiftImg from '../../assets/cars/swift.jpg';
-import brezzaImg from '../../assets/cars/brezza.jpg';
-import ertigaImg from '../../assets/cars/ertiga.jpg';
+import tharImg from '../../assets/cars/thar-roxx.webp';
+import scorpioImg from '../../assets/cars/scorpio-s11.webp';
+import xuvImg from '../../assets/cars/xuv700.webp';
+import swiftImg from '../../assets/cars/swift.webp';
+import brezzaImg from '../../assets/cars/brezza.webp';
+import ertigaImg from '../../assets/cars/ertiga.webp';
 
 const vehicles = [
   {

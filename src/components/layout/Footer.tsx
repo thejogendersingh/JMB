@@ -1,4 +1,4 @@
-import logo from '../../assets/logo-hvh.png';
+import logo from '../../assets/logo-hvh.webp';
 
 export function Footer() {
   const whatsappNumber = '+91 77348 62004';
