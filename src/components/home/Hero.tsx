@@ -1,19 +1,23 @@
 import { useEffect, useState } from 'react';
-import tharDesktopImg from '../../assets/places/hero-thar-roxx-desktop.webp';
-import tharMobileImg from '../../assets/places/hero-thar-roxx-mobile.webp';
-import jaisalmerDesktopImg from '../../assets/places/hero-jaisalmer-desktop.webp';
-import jaisalmerMobileImg from '../../assets/places/hero-jaisalmer-mobile.webp';
+import tharDesktopImg from '../../assets/places/hero-thar-roxx-white-desktop.webp';
+import tharMobileImg from '../../assets/places/hero-thar-roxx-white-mobile.webp';
+import campDesktopImg from '../../assets/places/hero-camp-night-desktop.webp';
+import campMobileImg from '../../assets/places/hero-camp-night-mobile.webp';
 
 const heroSlides = [
   {
     desktop: tharDesktopImg,
     mobile: tharMobileImg,
-    tag: 'SAM DESERT EXPEDITIONS & THAR ROXX',
+    tag: 'THAR DESERT SAFARI & EXPEDITIONS',
+    desktopPos: 'center 78%',
+    mobilePos: 'center center',
   },
   {
-    desktop: jaisalmerDesktopImg,
-    mobile: jaisalmerMobileImg,
-    tag: 'THE GOLDEN FORT OF JAISALMER',
+    desktop: campDesktopImg,
+    mobile: campMobileImg,
+    tag: 'ROYAL DESERT CAMP & STARRY NIGHT MEHFIL',
+    desktopPos: 'center 50%',
+    mobilePos: 'center 50%',
   },
 ];
 
@@ -123,7 +127,7 @@ export function Hero() {
               className="hidden md:block absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url("${slide.desktop}")`,
-                backgroundPosition: 'center 45%',
+                backgroundPosition: slide.desktopPos || 'center 50%',
               }}
             />
             {/* Mobile Background (visible on mobile, hidden on md and up) */}
@@ -131,7 +135,7 @@ export function Hero() {
               className="block md:hidden absolute inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: `url("${slide.mobile}")`,
-                backgroundPosition: 'center center',
+                backgroundPosition: slide.mobilePos || 'center center',
               }}
             />
           </div>
