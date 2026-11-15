@@ -1,10 +1,16 @@
 import { CheckCircle2, MessageCircle, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/common/SEO';
+import goldenHeritageImg from '../assets/rooms/room-golden-heritage.webp';
+import royalDeluxeImg from '../assets/rooms/room-royal-deluxe.webp';
+import maharajaSuiteImg from '../assets/rooms/room-maharaja-suite.webp';
+import grandRoyalSuiteImg from '../assets/rooms/room-grand-royal-suite.webp';
 
 const roomCategories = [
   {
     id: 'golden-heritage',
     name: 'Golden Heritage Room',
+    image: goldenHeritageImg,
     price: '₹3,500/-',
     period: 'per night',
     description:
@@ -21,6 +27,7 @@ const roomCategories = [
   {
     id: 'royal-deluxe',
     name: 'Royal Deluxe Room',
+    image: royalDeluxeImg,
     price: '₹5,500/-',
     period: 'per night',
     description:
@@ -38,6 +45,7 @@ const roomCategories = [
   {
     id: 'maharaja-suite',
     name: 'Maharaja Suite',
+    image: maharajaSuiteImg,
     price: '₹7,500/-',
     period: 'per night',
     description:
@@ -54,6 +62,7 @@ const roomCategories = [
   {
     id: 'grand-royal-suite',
     name: 'Jaisalmer Grand Royal Suite',
+    image: grandRoyalSuiteImg,
     price: '₹10,500/-',
     period: 'per night',
     description:
@@ -80,8 +89,40 @@ const stayInclusions = [
 ];
 
 export function HotelPage() {
+  const hotelJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Hotel',
+    'name': 'Hotel Vasudha Heritage Jaisalmer',
+    'description': 'Heritage hotel rooms and royal suites in Jaisalmer. Traditional sandstone architecture, modern luxury, and authentic Rajasthani hospitality.',
+    'url': 'https://hotelvasudhaheritage.com/hotel',
+    'telephone': '+91-7734862004',
+    'email': 'hotelvasudhaheritage@gmail.com',
+    'priceRange': '₹3,500 - ₹10,500',
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': 'A-154, Laxmi Chand Sanwal Colony, District court Road',
+      'addressLocality': 'Jaisalmer',
+      'addressRegion': 'Rajasthan',
+      'postalCode': '345001',
+      'addressCountry': 'IN'
+    },
+    'containsPlace': [
+      { '@type': 'HotelRoom', 'name': 'Golden Heritage Room', 'price': '3500 INR' },
+      { '@type': 'HotelRoom', 'name': 'Royal Deluxe Room', 'price': '5500 INR' },
+      { '@type': 'HotelRoom', 'name': 'Maharaja Suite', 'price': '7500 INR' },
+      { '@type': 'HotelRoom', 'name': 'Jaisalmer Grand Royal Suite', 'price': '10500 INR' }
+    ]
+  };
+
   return (
     <div className="pt-28 pb-20 bg-[#FAF7F2] min-h-screen text-[#241C17]">
+      <SEO
+        title="Heritage Hotel Rooms & Suites in Jaisalmer | Hotel Vasudha Heritage"
+        description="Book luxury heritage rooms & royal suites in Jaisalmer at Hotel Vasudha Heritage. Traditional stone architecture, modern amenities, warm Rajasthani hospitality. Starting ₹3,500."
+        keywords="hotel in Jaisalmer, luxury rooms Jaisalmer, Maharaja suite Jaisalmer, haveli hotel Jaisalmer, best stay Jaisalmer, hotel vasudha heritage"
+        canonical="https://hotelvasudhaheritage.com/hotel"
+        jsonLd={hotelJsonLd}
+      />
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
 
         {/* Back Link */}
@@ -166,16 +207,22 @@ export function HotelPage() {
               key={room.id}
               className="bg-white rounded-2xl border border-[#E8DFC8] overflow-hidden shadow-sm flex flex-col justify-between"
             >
-              {/* Image Box with COMING SOON */}
-              <div className="relative h-60 bg-[#241C17] flex items-center justify-center p-6 text-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-tr from-[#1B130E] via-[#2A1D15] to-[#36271D]" />
-                <div className="absolute inset-3 border border-[#C99A5B]/20 rounded-xl pointer-events-none" />
-
-                <div className="relative z-10">
-                  <span className="font-serif text-2xl sm:text-3xl text-[#E2BA7E] font-normal tracking-[0.25em] uppercase">
-                    COMING SOON
-                  </span>
+              {/* Image Box */}
+              <div className="relative h-64 sm:h-72 bg-[#241C17] overflow-hidden group">
+                <img
+                  src={room.image}
+                  alt={room.name}
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute top-4 right-4 bg-[#241C17]/85 backdrop-blur-sm px-3.5 py-1.5 rounded-lg border border-[#C99A5B]/30 text-white font-serif text-sm">
+                  {room.price}
                 </div>
+                {room.badge && (
+                  <div className="absolute top-4 left-4 bg-[#C99A5B] text-white text-[9px] font-sans font-bold tracking-widest uppercase px-3 py-1 rounded-full shadow-sm">
+                    {room.badge}
+                  </div>
+                )}
               </div>
 
               {/* Body */}

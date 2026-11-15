@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, MessageCircle, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/common/SEO';
 
 const services = [
   '🚗 Car Rental & Chauffeur Services',
@@ -23,8 +24,37 @@ export function ContactPage() {
   const mapEmbedUrl =
     'https://www.google.com/maps?q=' + encodeURIComponent(mapQuery) + '&output=embed';
 
+  const contactJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ContactPage',
+    'name': 'Contact Hotel Vasudha Heritage Jaisalmer',
+    'description': 'Contact Hotel Vasudha Heritage for room reservations, Sam sand dunes luxury desert camp bookings, jeep & camel safari, and car rental service in Jaisalmer.',
+    'url': 'https://hotelvasudhaheritage.com/contact',
+    'mainEntity': {
+      '@type': 'LocalBusiness',
+      'name': 'Hotel Vasudha Heritage',
+      'telephone': '+91-7734862004',
+      'email': 'hotelvasudhaheritage@gmail.com',
+      'address': {
+        '@type': 'PostalAddress',
+        'streetAddress': 'A-154, Laxmi Chand Sanwal Colony, District court Road',
+        'addressLocality': 'Jaisalmer',
+        'addressRegion': 'Rajasthan',
+        'postalCode': '345001',
+        'addressCountry': 'IN'
+      }
+    }
+  };
+
   return (
     <div className="pt-28 pb-20 bg-[#FAF7F2] min-h-screen text-[#241C17]">
+      <SEO
+        title="Contact Hotel Vasudha Heritage Jaisalmer | Stay, Tours & Taxi Bookings"
+        description="Book your Jaisalmer stay, Sam desert camp, and car rental. Call or WhatsApp +91 77348 62004 or visit us at A-154, Laxmi Chand Sanwal Colony, District Court Road, Jaisalmer."
+        keywords="contact hotel vasudha heritage, Jaisalmer hotel booking, desert camp booking Jaisalmer, taxi booking Jaisalmer, Jaisalmer hotel phone number"
+        canonical="https://hotelvasudhaheritage.com/contact"
+        jsonLd={contactJsonLd}
+      />
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
 
         {/* Back Link */}

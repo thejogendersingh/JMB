@@ -9,6 +9,10 @@ import {
   CheckCircle2,
   ArrowUpRight,
 } from 'lucide-react';
+import goldenHeritageImg from '../../assets/rooms/room-golden-heritage.webp';
+import royalDeluxeImg from '../../assets/rooms/room-royal-deluxe.webp';
+import maharajaSuiteImg from '../../assets/rooms/room-maharaja-suite.webp';
+import grandRoyalSuiteImg from '../../assets/rooms/room-grand-royal-suite.webp';
 
 const categories = [
   'Golden Heritage Room',
@@ -20,6 +24,7 @@ const categories = [
 const roomData: Record<string, any> = {
   'Golden Heritage Room': {
     title: 'Golden Heritage Room',
+    image: goldenHeritageImg,
     price: '₹3,500/-',
     subtitle: 'Traditional Jaisalmer-inspired atmosphere with essential comfort.',
     description1:
@@ -36,6 +41,7 @@ const roomData: Record<string, any> = {
 
   'Royal Deluxe Room': {
     title: 'Royal Deluxe Room',
+    image: royalDeluxeImg,
     price: '₹5,500/-',
     subtitle: 'Spacious accommodation with upgraded amenities for a relaxing stay.',
     description1:
@@ -52,6 +58,7 @@ const roomData: Record<string, any> = {
 
   'Maharaja Suite': {
     title: 'Maharaja Suite',
+    image: maharajaSuiteImg,
     price: '₹7,500/-',
     subtitle: 'Premium suite experience with extra space and enhanced comfort.',
     description1:
@@ -68,6 +75,7 @@ const roomData: Record<string, any> = {
 
   'Jaisalmer Grand Royal Suite': {
     title: 'Jaisalmer Grand Royal Suite',
+    image: grandRoyalSuiteImg,
     price: '₹10,500/-',
     subtitle: 'Our top-category stay designed for a luxurious and memorable experience.',
     description1:
@@ -201,7 +209,7 @@ export function RoomsSection() {
           </div>
         </div>
 
-        {/* Room Image Box with "Coming Soon" */}
+        {/* Room Image Box */}
         <div className="relative">
           <div
             key={activeTab}
@@ -217,24 +225,27 @@ export function RoomsSection() {
               sm:h-[430px]
               md:h-[490px]
               lg:h-[520px]
-              flex
-              items-center
-              justify-center
             "
           >
-            {/* Ambient luxury texture backdrop */}
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#1E1712] via-[#2D211A] to-[#3B2C22] opacity-95" />
-            
-            {/* Fine decorative architectural arch outline */}
-            <div className="absolute inset-4 sm:inset-8 border border-[#C99A5B]/25 rounded-xl pointer-events-none flex items-center justify-center">
-              <div className="w-[85%] h-[85%] border border-[#C99A5B]/15 rounded-lg" />
-            </div>
+            <img
+              src={currentRoom.image}
+              alt={currentRoom.title}
+              className="
+                h-full
+                w-full
+                object-cover
+                transition-transform
+                duration-700
+                group-hover:scale-105
+              "
+            />
+            {/* Subtle elegant gradient overlay at bottom for depth */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-black/10 pointer-events-none" />
 
-            {/* COMING SOON - Clean text only */}
-            <div className="relative z-10 text-center px-6">
-              <span className="font-serif text-3xl sm:text-4xl md:text-5xl text-[#E2BA7E] font-normal tracking-[0.28em] uppercase drop-shadow-md">
-                COMING SOON
-              </span>
+            {/* Price Badge on Image */}
+            <div className="absolute top-5 right-5 sm:top-6 sm:right-6 bg-[#241C17]/85 backdrop-blur-md border border-[#C99A5B]/40 text-white px-4 py-2 rounded-xl text-right">
+              <span className="block font-sans text-[8.5px] uppercase tracking-[0.2em] text-[#C99A5B]">Per Night</span>
+              <span className="font-serif text-lg sm:text-xl font-normal text-[#E2BA7E]">{currentRoom.price}</span>
             </div>
           </div>
 

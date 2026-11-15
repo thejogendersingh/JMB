@@ -9,7 +9,7 @@ const heroSlides = [
     desktop: tharDesktopImg,
     mobile: tharMobileImg,
     tag: 'THAR DESERT SAFARI & EXPEDITIONS',
-    desktopPos: 'center 78%',
+    desktopPos: 'center 50%',
     mobilePos: 'center center',
   },
   {

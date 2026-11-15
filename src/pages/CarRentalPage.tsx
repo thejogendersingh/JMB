@@ -1,5 +1,6 @@
 import { MessageCircle, CheckCircle2, ArrowLeft } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/common/SEO';
 import tharImg from '../assets/cars/thar-roxx.webp';
 import scorpioImg from '../assets/cars/scorpio-s11.webp';
 import xuvImg from '../assets/cars/xuv700.webp';
@@ -100,8 +101,42 @@ const highlights = [
 ];
 
 export function CarRentalPage() {
+  const carRentalJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'AutoRental',
+    'name': 'Hotel Vasudha Heritage Car Rental & Taxi Service Jaisalmer',
+    'description': 'Private car rental and taxi services in Jaisalmer. Rent Mahindra Thar Roxx 4x4, Scorpio S11, XUV 700, Ertiga, Swift, Brezza. 24 Hours rental with 300 KM included. Sam desert dunes, Tanot Mata, Longewala.',
+    'url': 'https://hotelvasudhaheritage.com/car-rental',
+    'telephone': '+91-7734862004',
+    'email': 'hotelvasudhaheritage@gmail.com',
+    'priceRange': '₹4,000 - ₹8,500 per day',
+    'address': {
+      '@type': 'PostalAddress',
+      'streetAddress': 'A-154, Laxmi Chand Sanwal Colony, District court Road',
+      'addressLocality': 'Jaisalmer',
+      'addressRegion': 'Rajasthan',
+      'postalCode': '345001',
+      'addressCountry': 'IN'
+    },
+    'areaServed': [
+      'Jaisalmer City',
+      'Sam Sand Dunes',
+      'Tanot Mata Temple',
+      'Longewala War Memorial',
+      'Kuldhara Village',
+      'Bada Bagh'
+    ]
+  };
+
   return (
     <div className="pt-28 pb-20 bg-[#FAF7F2] min-h-screen text-[#241C17]">
+      <SEO
+        title="Car Rental in Jaisalmer & Taxi Service | Hotel Vasudha Heritage"
+        description="Rent Mahindra Thar Roxx 4x4, Scorpio S11, XUV 700, Ertiga, Swift in Jaisalmer. 24 Hours with 300 KM included. Local sightseeing, Sam Desert & Tanot trips. Call +91 77348 62004."
+        keywords="car rental Jaisalmer, taxi service Jaisalmer, Thar on rent Jaisalmer, Scorpio rental Jaisalmer, Jaisalmer car hire, self drive Jaisalmer, cab booking Jaisalmer"
+        canonical="https://hotelvasudhaheritage.com/car-rental"
+        jsonLd={carRentalJsonLd}
+      />
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
 
         {/* Back Link */}

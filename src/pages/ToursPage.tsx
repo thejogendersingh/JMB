@@ -6,6 +6,7 @@ import {
   ArrowLeft,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { SEO } from '../components/common/SEO';
 import packageEssentialImg from '../assets/package-essential.webp';
 import packagePremiumImg from '../assets/places/package-premium.webp';
 import packageLuxuryImg from '../assets/places/package-luxury.webp';
@@ -70,8 +71,34 @@ const categories = [
 export function ToursPage() {
   const [activeTab, setActiveTab] = useState<'packages' | 'desert' | 'complete'>('packages');
 
+  const tourJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'TouristTrip',
+    'name': 'Jaisalmer Desert Safari & Tour Packages',
+    'description': 'Complete Jaisalmer tour packages, Sam sand dunes luxury desert camp stay, camel safari, 4x4 jeep dune bashing, cultural folk program, and Tanot Mata Longewala border tour.',
+    'touristType': 'Couples, Families, Adventure Travellers',
+    'provider': {
+      '@type': 'TravelAgency',
+      'name': 'Hotel Vasudha Heritage Tours',
+      'url': 'https://hotelvasudhaheritage.com/tour',
+      'telephone': '+91-7734862004'
+    },
+    'offers': [
+      { '@type': 'Offer', 'name': 'Vasudha Essential Jaisalmer Package', 'price': '3999', 'priceCurrency': 'INR' },
+      { '@type': 'Offer', 'name': 'Vasudha Premium Jaisalmer Experience', 'price': '7499', 'priceCurrency': 'INR' },
+      { '@type': 'Offer', 'name': 'Vasudha Royal Jaisalmer Experience', 'price': '12999', 'priceCurrency': 'INR' }
+    ]
+  };
+
   return (
     <div className="pt-28 pb-20 bg-[#FAF7F2] min-h-screen text-[#241C17]">
+      <SEO
+        title="Jaisalmer Tour Packages & Sam Desert Camp | Hotel Vasudha Heritage"
+        description="Book all-inclusive Jaisalmer tour packages, Sam sand dunes luxury desert camp stay, camel safari, jeep dune bashing, and Tanot-Longewala border tour. From ₹3,999."
+        keywords="Jaisalmer tour packages, Sam desert camp, desert safari Jaisalmer, camel ride Jaisalmer, Tanot Longewala tour, Jaisalmer packages, jaisalmer trip"
+        canonical="https://hotelvasudhaheritage.com/tour"
+        jsonLd={tourJsonLd}
+      />
       <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-12">
 
         {/* Back Link */}
