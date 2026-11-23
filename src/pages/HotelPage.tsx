@@ -4,14 +4,13 @@ import { SEO } from '../components/common/SEO';
 import goldenHeritageImg from '../assets/rooms/room-golden-heritage.webp';
 import royalDeluxeImg from '../assets/rooms/room-royal-deluxe.webp';
 import maharajaSuiteImg from '../assets/rooms/room-maharaja-suite.webp';
-import grandRoyalSuiteImg from '../assets/rooms/room-grand-royal-suite.webp';
 
 const roomCategories = [
   {
     id: 'golden-heritage',
     name: 'Golden Heritage Room',
     image: goldenHeritageImg,
-    price: '₹3,500/-',
+    price: '₹2,500/-',
     period: 'per night',
     description:
       'Comfortable stay with essential amenities and a traditional Jaisalmer-inspired atmosphere.',
@@ -28,11 +27,12 @@ const roomCategories = [
     id: 'royal-deluxe',
     name: 'Royal Deluxe Room',
     image: royalDeluxeImg,
-    price: '₹5,500/-',
+    price: '₹3,500/-',
     period: 'per night',
     description:
-      'Spacious and comfortable room with upgraded amenities for a relaxing stay.',
+      'Spacious and comfortable room with breakfast included and upgraded amenities for a relaxing stay.',
     features: [
+      'Complimentary Breakfast Included',
       'Spacious Living & Bedroom Space',
       'King-Size Royal Mattress with Luxury Linens',
       'Dual-Climate AC & Fan',
@@ -46,11 +46,12 @@ const roomCategories = [
     id: 'maharaja-suite',
     name: 'Maharaja Suite',
     image: maharajaSuiteImg,
-    price: '₹7,500/-',
+    price: '₹4,500/-',
     period: 'per night',
     description:
-      'Premium suite experience with extra space and enhanced comfort.',
+      'Premium royal suite experience with breakfast included, extra space, and enhanced comfort.',
     features: [
+      'Complimentary Breakfast Included',
       'Opulent Maharaja Decor & Private Seating',
       'Grand Royal King Bedding',
       'Heritage Bath with Premium Toiletries',
@@ -58,24 +59,7 @@ const roomCategories = [
       'Priority Assistance for Desert & Car Bookings',
       'Express Check-In & Check-Out',
     ],
-  },
-  {
-    id: 'grand-royal-suite',
-    name: 'Jaisalmer Grand Royal Suite',
-    image: grandRoyalSuiteImg,
-    price: '₹10,500/-',
-    period: 'per night',
-    description:
-      'Our top-category stay designed for guests looking for a luxurious and memorable Jaisalmer experience.',
-    features: [
-      'Top-Floor Royal Suite with Scenic City/Fort View',
-      'Extensive Lounge & Separate Sleeping Quarters',
-      'Signature Rajasthani Craftsmanship & Carvings',
-      'Full Meal / Breakfast Plan Options',
-      'Dedicated Travel Concierge & Station Transfer Assistance',
-      'VIP Amenities & Welcome Refreshments',
-    ],
-    badge: 'TOP LUXURY',
+    badge: 'LUXURY SUITE',
   },
 ];
 
@@ -97,7 +81,7 @@ export function HotelPage() {
     'url': 'https://hotelvasudhaheritage.com/hotel',
     'telephone': '+91-7734862004',
     'email': 'hotelvasudhaheritage@gmail.com',
-    'priceRange': '₹3,500 - ₹10,500',
+    'priceRange': '₹2,500 - ₹4,500',
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': 'A-154, Laxmi Chand Sanwal Colony, District court Road',
@@ -107,10 +91,9 @@ export function HotelPage() {
       'addressCountry': 'IN'
     },
     'containsPlace': [
-      { '@type': 'HotelRoom', 'name': 'Golden Heritage Room', 'price': '3500 INR' },
-      { '@type': 'HotelRoom', 'name': 'Royal Deluxe Room', 'price': '5500 INR' },
-      { '@type': 'HotelRoom', 'name': 'Maharaja Suite', 'price': '7500 INR' },
-      { '@type': 'HotelRoom', 'name': 'Jaisalmer Grand Royal Suite', 'price': '10500 INR' }
+      { '@type': 'HotelRoom', 'name': 'Golden Heritage Room', 'price': '2500 INR' },
+      { '@type': 'HotelRoom', 'name': 'Royal Deluxe Room', 'price': '3500 INR' },
+      { '@type': 'HotelRoom', 'name': 'Maharaja Suite', 'price': '4500 INR' }
     ]
   };
 
@@ -118,7 +101,7 @@ export function HotelPage() {
     <div className="pt-28 pb-20 bg-[#FAF7F2] min-h-screen text-[#241C17]">
       <SEO
         title="Heritage Hotel Rooms & Suites in Jaisalmer | Hotel Vasudha Heritage"
-        description="Book luxury heritage rooms & royal suites in Jaisalmer at Hotel Vasudha Heritage. Traditional stone architecture, modern amenities, warm Rajasthani hospitality. Starting ₹3,500."
+        description="Book luxury heritage rooms & royal suites in Jaisalmer at Hotel Vasudha Heritage. Traditional stone architecture, modern amenities, warm Rajasthani hospitality. Starting ₹2,500."
         keywords="hotel in Jaisalmer, luxury rooms Jaisalmer, Maharaja suite Jaisalmer, haveli hotel Jaisalmer, best stay Jaisalmer, hotel vasudha heritage"
         canonical="https://hotelvasudhaheritage.com/hotel"
         jsonLd={hotelJsonLd}

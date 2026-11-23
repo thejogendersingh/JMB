@@ -12,20 +12,18 @@ import {
 import goldenHeritageImg from '../../assets/rooms/room-golden-heritage.webp';
 import royalDeluxeImg from '../../assets/rooms/room-royal-deluxe.webp';
 import maharajaSuiteImg from '../../assets/rooms/room-maharaja-suite.webp';
-import grandRoyalSuiteImg from '../../assets/rooms/room-grand-royal-suite.webp';
 
 const categories = [
   'Golden Heritage Room',
   'Royal Deluxe Room',
   'Maharaja Suite',
-  'Jaisalmer Grand Royal Suite',
 ];
 
 const roomData: Record<string, any> = {
   'Golden Heritage Room': {
     title: 'Golden Heritage Room',
     image: goldenHeritageImg,
-    price: '₹3,500/-',
+    price: '₹2,500/-',
     subtitle: 'Traditional Jaisalmer-inspired atmosphere with essential comfort.',
     description1:
       'Comfortable stay with essential amenities and a traditional Jaisalmer-inspired atmosphere. Perfect for solo travellers, couples and budget-conscious guests seeking authentic Rajasthani warmth.',
@@ -35,23 +33,23 @@ const roomData: Record<string, any> = {
       { icon: Wifi, label: 'Wi-Fi (Subject to availability)' },
       { icon: Droplets, label: 'Hot & Cold Water' },
       { icon: Lock, label: 'Safe & Housekeeping' },
-      { icon: Coffee, label: 'Breakfast / Meal Plan' },
+      { icon: Coffee, label: 'Room Service & Meal Plan' },
     ],
   },
 
   'Royal Deluxe Room': {
     title: 'Royal Deluxe Room',
     image: royalDeluxeImg,
-    price: '₹5,500/-',
-    subtitle: 'Spacious accommodation with upgraded amenities for a relaxing stay.',
+    price: '₹3,500/-',
+    subtitle: 'Spacious accommodation with breakfast included for a relaxing stay.',
     description1:
-      'Spacious and comfortable room with upgraded amenities for a relaxing stay. Designed with authentic stone work, rich textiles and thoughtful conveniences for a truly restful holiday in the Golden City.',
+      'Spacious and comfortable room with breakfast included and upgraded amenities for a relaxing stay. Designed with authentic stone work, rich textiles and thoughtful conveniences for a restful holiday in the Golden City.',
     amenities: [
       { icon: BedDouble, label: 'King Size Deluxe Bed' },
+      { icon: Coffee, label: 'Breakfast Included' },
       { icon: Wind, label: 'Climate Control AC' },
       { icon: Wifi, label: 'High-Speed Wi-Fi' },
       { icon: Droplets, label: '24-Hour Hot & Cold Water' },
-      { icon: Coffee, label: 'Tea & Coffee Maker' },
       { icon: Lock, label: 'Daily Housekeeping & Safe' },
     ],
   },
@@ -59,34 +57,17 @@ const roomData: Record<string, any> = {
   'Maharaja Suite': {
     title: 'Maharaja Suite',
     image: maharajaSuiteImg,
-    price: '₹7,500/-',
-    subtitle: 'Premium suite experience with extra space and enhanced comfort.',
+    price: '₹4,500/-',
+    subtitle: 'Royal heritage suite experience with extra space and premium comfort.',
     description1:
-      'Premium suite experience with extra space and enhanced comfort. Crafted for families and travellers seeking a touch of royal grandeur, spacious sitting area, and personalized concierge assistance.',
+      'Premium suite experience with extra space, breakfast included and enhanced royal comfort. Crafted for families and travellers seeking a touch of royal grandeur, spacious sitting area, and personalized concierge assistance.',
     amenities: [
       { icon: BedDouble, label: 'Royal Maharaja King Bed' },
+      { icon: Coffee, label: 'Breakfast Included' },
       { icon: Wind, label: 'Split Air Conditioner' },
       { icon: Wifi, label: 'Complimentary Wi-Fi' },
       { icon: Droplets, label: 'Luxury Bath & Shower' },
-      { icon: Coffee, label: 'Tea / Coffee & Minibar' },
       { icon: Lock, label: 'Luggage Assistance & Safe' },
-    ],
-  },
-
-  'Jaisalmer Grand Royal Suite': {
-    title: 'Jaisalmer Grand Royal Suite',
-    image: grandRoyalSuiteImg,
-    price: '₹10,500/-',
-    subtitle: 'Our top-category stay designed for a luxurious and memorable experience.',
-    description1:
-      'Our top-category stay designed for guests looking for a luxurious and memorable Jaisalmer experience. Features opulent Rajasthani decor, private lounge space, and dedicated assistance for desert excursions.',
-    amenities: [
-      { icon: BedDouble, label: 'Grand Royal Emperor Bed' },
-      { icon: Wind, label: 'Dual-Zone Air Conditioning' },
-      { icon: Wifi, label: 'High-Speed Premium Wi-Fi' },
-      { icon: Droplets, label: 'Heritage Bathtub & Rain Shower' },
-      { icon: Coffee, label: 'Complimentary Breakfast Included' },
-      { icon: Lock, label: 'Private Concierge & Tours' },
     ],
   },
 };
