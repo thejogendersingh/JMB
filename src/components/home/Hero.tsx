@@ -137,18 +137,17 @@ export function Hero() {
           <span
             className="
               font-sans
-              text-[10px]
-              sm:text-[11px]
-              md:text-[12px]
-              tracking-[0.32em]
-              sm:tracking-[0.36em]
+              text-[9px]
+              sm:text-[10px]
+              md:text-[11px]
+              tracking-[0.28em]
+              sm:tracking-[0.32em]
               uppercase
               font-semibold
               text-white/95
               drop-shadow-[0_2px_8px_rgba(0,0,0,0.85)]
-              mb-2
-              sm:mb-2.5
-              md:mb-3
+              mb-1.5
+              sm:mb-2
             "
           >
             STAY AT
@@ -161,17 +160,18 @@ export function Hero() {
               font-normal
               uppercase
               text-white
-              leading-[1.1]
+              leading-[1.12]
               tracking-[0.03em]
               drop-shadow-[0_4px_16px_rgba(0,0,0,0.85)]
 
-              text-[28px]
-              sm:text-[40px]
-              md:text-[50px]
-              lg:text-[58px]
+              text-[24px]
+              sm:text-[32px]
+              md:text-[40px]
+              lg:text-[46px]
+              xl:text-[50px]
 
               w-full
-              max-w-[850px]
+              max-w-[760px]
               mx-auto
             "
           >
@@ -181,24 +181,24 @@ export function Hero() {
           {/* Subtitle */}
           <p
             className="
-              mt-2.5
-              sm:mt-3
-              md:mt-3.5
+              mt-2
+              sm:mt-2.5
+              md:mt-3
 
               font-sans
               font-light
               text-white/90
 
-              text-[12px]
-              sm:text-[14px]
-              md:text-[15.5px]
+              text-[11.5px]
+              sm:text-[13px]
+              md:text-[14px]
 
               tracking-[0.02em]
               leading-normal
 
               drop-shadow-[0_2px_10px_rgba(0,0,0,0.85)]
 
-              max-w-[500px]
+              max-w-[460px]
               mx-auto
             "
           >
