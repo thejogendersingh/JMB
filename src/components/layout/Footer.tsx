@@ -528,10 +528,18 @@ export function Footer() {
               font-sans
               text-[10px]
               tracking-wide
-              text-[#241C17]/45
+              text-[#241C17]/55
             "
           >
-            © Hotel Vasudha Heritage. All Rights Reserved.
+            © Hotel Vasudha Heritage. All Rights Reserved. • Designed & Developed by{" "}
+            <a
+              href="https://truqod.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-[#C99A5B] font-medium hover:underline underline-offset-2 transition-colors"
+            >
+              Truqod
+            </a>
           </p>
 
           <p
