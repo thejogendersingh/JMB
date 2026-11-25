@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { MessageCircle, Users, Wind, MapPin, Gauge } from 'lucide-react';
 import tharImg from '../../assets/cars/thar-roxx.webp';
 import scorpioImg from '../../assets/cars/scorpio-s11.webp';
+import innovaImg from '../../assets/cars/innova-crysta.webp';
 import xuvImg from '../../assets/cars/xuv700.webp';
 import swiftImg from '../../assets/cars/swift.webp';
 import brezzaImg from '../../assets/cars/brezza.webp';
@@ -12,7 +13,7 @@ const vehicles = [
     id: 1,
     name: 'Mahindra Thar Roxx',
     model: 'Mahindra Thar Roxx 4×4',
-    price: '₹7,500/-',
+    price: '₹5,500/-',
     kmLimit: '300 KM / 24 Hours',
     seating: '4–5 Pax',
     climate: 'Climate Control AC',
@@ -21,9 +22,9 @@ const vehicles = [
   },
   {
     id: 2,
-    name: 'Scorpio S11 – White',
-    model: 'Mahindra Scorpio S11 (White)',
-    price: '₹5,500/-',
+    name: 'Scorpio S11 Classic',
+    model: 'Mahindra Scorpio S11 Classic (White)',
+    price: '₹5,000/-',
     kmLimit: '300 KM / 24 Hours',
     seating: '7 Pax',
     climate: 'Dual Zone AC',
@@ -32,20 +33,20 @@ const vehicles = [
   },
   {
     id: 3,
-    name: 'XUV 700',
-    model: 'Mahindra XUV 700 Premium',
-    price: '₹8,500/-',
+    name: 'Innova Crysta',
+    model: 'Toyota Innova Crysta Luxury',
+    price: '₹7,500/-',
     kmLimit: '300 KM / 24 Hours',
-    seating: '6–7 Pax',
-    climate: 'Dual Zone AC',
-    ideal: 'Luxury Royal Travel & Complete Rajasthan Circuit',
-    image: xuvImg,
+    seating: '7–8 Pax',
+    climate: 'Dual Climate Control AC',
+    ideal: 'VIP Royal Travel, Family Group & Long Distance Highway Tours',
+    image: innovaImg,
   },
   {
     id: 4,
     name: 'Swift',
     model: 'Maruti Suzuki Swift',
-    price: '₹4,000/-',
+    price: '₹3,500/-',
     kmLimit: '300 KM / 24 Hours',
     seating: '4 Pax',
     climate: 'Power AC',
@@ -73,6 +74,17 @@ const vehicles = [
     climate: 'Roof AC Vents',
     ideal: 'Family Group Tours, Station & Airport Transfers',
     image: ertigaImg,
+  },
+  {
+    id: 7,
+    name: 'XUV 700',
+    model: 'Mahindra XUV 700 Premium',
+    price: '₹8,500/-',
+    kmLimit: '300 KM / 24 Hours',
+    seating: '6–7 Pax',
+    climate: 'Dual Zone AC',
+    ideal: 'Luxury Royal Travel & Complete Rajasthan Circuit',
+    image: xuvImg,
   },
 ];
 

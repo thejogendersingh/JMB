@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { SEO } from '../components/common/SEO';
 import tharImg from '../assets/cars/thar-roxx.webp';
 import scorpioImg from '../assets/cars/scorpio-s11.webp';
+import innovaImg from '../assets/cars/innova-crysta.webp';
 import xuvImg from '../assets/cars/xuv700.webp';
 import swiftImg from '../assets/cars/swift.webp';
 import brezzaImg from '../assets/cars/brezza.webp';
@@ -13,7 +14,7 @@ const cars = [
     id: 1,
     name: 'Mahindra Thar Roxx',
     model: 'Mahindra Thar Roxx 4×4',
-    price: '₹7,500/-',
+    price: '₹5,500/-',
     kmLimit: '300 KM',
     duration: '24 Hours',
     seating: '4–5 Seater',
@@ -24,9 +25,9 @@ const cars = [
   },
   {
     id: 2,
-    name: 'Scorpio S11 – White',
-    model: 'Mahindra Scorpio S11 (White)',
-    price: '₹5,500/-',
+    name: 'Scorpio S11 Classic',
+    model: 'Mahindra Scorpio S11 Classic (White)',
+    price: '₹5,000/-',
     kmLimit: '300 KM',
     duration: '24 Hours',
     seating: '7 Seater',
@@ -37,22 +38,22 @@ const cars = [
   },
   {
     id: 3,
-    name: 'XUV 700',
-    model: 'Mahindra XUV 700 Flagship',
-    price: '₹8,500/-',
+    name: 'Innova Crysta',
+    model: 'Toyota Innova Crysta Luxury',
+    price: '₹7,500/-',
     kmLimit: '300 KM',
     duration: '24 Hours',
-    seating: '6–7 Seater',
-    climate: 'Dual Zone Climate AC',
-    bestFor: 'VIP Royal Travel & Complete Rajasthan Circuit',
-    image: xuvImg,
-    badge: 'LUXURY SUV',
+    seating: '7–8 Seater',
+    climate: 'Dual Climate Control AC',
+    bestFor: 'VIP Royal Travel, Family Comfort & Highway Circuits',
+    image: innovaImg,
+    badge: 'PREMIUM COMFORT',
   },
   {
     id: 4,
     name: 'Swift',
     model: 'Maruti Suzuki Swift',
-    price: '₹4,000/-',
+    price: '₹3,500/-',
     kmLimit: '300 KM',
     duration: '24 Hours',
     seating: '4 Seater',
@@ -87,6 +88,19 @@ const cars = [
     image: ertigaImg,
     badge: 'FAMILY 7-SEATER',
   },
+  {
+    id: 7,
+    name: 'XUV 700',
+    model: 'Mahindra XUV 700 Flagship',
+    price: '₹8,500/-',
+    kmLimit: '300 KM',
+    duration: '24 Hours',
+    seating: '6–7 Seater',
+    climate: 'Dual Zone Climate AC',
+    bestFor: 'VIP Royal Travel & Complete Rajasthan Circuit',
+    image: xuvImg,
+    badge: 'LUXURY SUV',
+  },
 ];
 
 const highlights = [
@@ -105,11 +119,11 @@ export function CarRentalPage() {
     '@context': 'https://schema.org',
     '@type': 'AutoRental',
     'name': 'Hotel Vasudha Heritage Car Rental & Taxi Service Jaisalmer',
-    'description': 'Private car rental and taxi services in Jaisalmer. Rent Mahindra Thar Roxx 4x4, Scorpio S11, XUV 700, Ertiga, Swift, Brezza. 24 Hours rental with 300 KM included. Sam desert dunes, Tanot Mata, Longewala.',
+    'description': 'Private car rental and taxi services in Jaisalmer. Rent Mahindra Thar Roxx 4x4, Scorpio S11 Classic, Innova Crysta, XUV 700, Ertiga, Swift, Brezza. 24 Hours rental with 300 KM included. Sam desert dunes, Tanot Mata, Longewala.',
     'url': 'https://hotelvasudhaheritage.com/car-rental',
     'telephone': '+91-7734862004',
     'email': 'hotelvasudhaheritage@gmail.com',
-    'priceRange': '₹4,000 - ₹8,500 per day',
+    'priceRange': '₹3,500 - ₹8,500 per day',
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': 'A-154, Laxmi Chand Sanwal Colony, District court Road',
@@ -132,7 +146,7 @@ export function CarRentalPage() {
     <div className="pt-28 pb-20 bg-[#FAF7F2] min-h-screen text-[#241C17]">
       <SEO
         title="Car Rental in Jaisalmer & Taxi Service | Hotel Vasudha Heritage"
-        description="Rent Mahindra Thar Roxx 4x4, Scorpio S11, XUV 700, Ertiga, Swift in Jaisalmer. 24 Hours with 300 KM included. Local sightseeing, Sam Desert & Tanot trips. Call +91 77348 62004."
+        description="Rent Mahindra Thar Roxx 4x4, Scorpio S11 Classic, Innova Crysta, Swift, Ertiga in Jaisalmer. 24 Hours with 300 KM included. Local sightseeing, Sam Desert & Tanot trips. Starting ₹3,500. Call +91 77348 62004."
         keywords="car rental Jaisalmer, taxi service Jaisalmer, Thar on rent Jaisalmer, Scorpio rental Jaisalmer, Jaisalmer car hire, self drive Jaisalmer, cab booking Jaisalmer"
         canonical="https://hotelvasudhaheritage.com/car-rental"
         jsonLd={carRentalJsonLd}

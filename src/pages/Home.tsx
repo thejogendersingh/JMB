@@ -17,7 +17,7 @@ export function Home() {
     'url': 'https://hotelvasudhaheritage.com',
     'telephone': '+91-7734862004',
     'email': 'hotelvasudhaheritage@gmail.com',
-    'priceRange': '₹2,500 - ₹12,999',
+    'priceRange': '₹2,500 - ₹25,000',
     'address': {
       '@type': 'PostalAddress',
       'streetAddress': 'A-154, Laxmi Chand Sanwal Colony, District court Road',

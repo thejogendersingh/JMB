@@ -16,8 +16,8 @@ const categories = [
     tier: 'BASIC',
     name: 'Vasudha Essential Jaisalmer Package',
     idealFor: 'Budget travellers and short weekend explorers',
-    price: '₹3,999/-',
-    period: 'per person',
+    price: '₹18,000/-',
+    period: 'per couple',
     image: packageEssentialImg,
     inclusions: [
       'Hotel / Desert Camp Stay',
@@ -31,8 +31,8 @@ const categories = [
     tier: 'PREMIUM',
     name: 'Vasudha Premium Jaisalmer Experience',
     idealFor: 'Mid-range travellers seeking comfort, safaris & private car',
-    price: '₹7,499/-',
-    period: 'per person',
+    price: '₹21,000/-',
+    period: 'per couple',
     badge: 'MOST POPULAR',
     image: packagePremiumImg,
     inclusions: [
@@ -50,8 +50,8 @@ const categories = [
     tier: 'LUXURY',
     name: 'Vasudha Royal Jaisalmer Experience',
     idealFor: 'Full VIP experience with Indo-Pak Border & Luxury Camps',
-    price: '₹12,999/-',
-    period: 'per person',
+    price: '₹25,000/-',
+    period: 'per couple',
     badge: 'ROYAL VIP',
     image: packageLuxuryImg,
     inclusions: [
@@ -84,9 +84,9 @@ export function ToursPage() {
       'telephone': '+91-7734862004'
     },
     'offers': [
-      { '@type': 'Offer', 'name': 'Vasudha Essential Jaisalmer Package', 'price': '3999', 'priceCurrency': 'INR' },
-      { '@type': 'Offer', 'name': 'Vasudha Premium Jaisalmer Experience', 'price': '7499', 'priceCurrency': 'INR' },
-      { '@type': 'Offer', 'name': 'Vasudha Royal Jaisalmer Experience', 'price': '12999', 'priceCurrency': 'INR' }
+      { '@type': 'Offer', 'name': 'Vasudha Essential Jaisalmer Package', 'price': '18000', 'priceCurrency': 'INR' },
+      { '@type': 'Offer', 'name': 'Vasudha Premium Jaisalmer Experience', 'price': '21000', 'priceCurrency': 'INR' },
+      { '@type': 'Offer', 'name': 'Vasudha Royal Jaisalmer Experience', 'price': '25000', 'priceCurrency': 'INR' }
     ]
   };
 
@@ -94,7 +94,7 @@ export function ToursPage() {
     <div className="pt-28 pb-20 bg-[#FAF7F2] min-h-screen text-[#241C17]">
       <SEO
         title="Jaisalmer Tour Packages & Sam Desert Camp | Hotel Vasudha Heritage"
-        description="Book all-inclusive Jaisalmer tour packages, Sam sand dunes luxury desert camp stay, camel safari, jeep dune bashing, and Tanot-Longewala border tour. From ₹3,999."
+        description="Book all-inclusive Jaisalmer tour packages, Sam sand dunes luxury desert camp stay, camel safari, jeep dune bashing, and Tanot-Longewala border tour. From ₹18,000 per couple."
         keywords="Jaisalmer tour packages, Sam desert camp, desert safari Jaisalmer, camel ride Jaisalmer, Tanot Longewala tour, Jaisalmer packages, jaisalmer trip"
         canonical="https://hotelvasudhaheritage.com/tour"
         jsonLd={tourJsonLd}
